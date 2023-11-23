@@ -17,10 +17,20 @@ const client = yelp.client(apiKey);
 client.search(searchRequest).then(response => {
   const firstResult = response.jsonBody.businesses[0];
   const secondResult = response.jsonBody.businesses[1];
-  console.log(typeof secondResult)
-  console.log(firstResult);
-  console.log(secondResult);
 
+  const resultObj = {
+    id : secondResult.id,
+    name : secondResult.name,
+    image : secondResult.image_url,
+    categories : secondResult.categories,
+    rating : secondResult.image,
+    location : secondResult.location.address1
+  }
+
+  console.log(response.jsonBody.businesses);
+
+  //console.log(firstResult);
+  //console.log(resultObj);
 }).catch(e => {
   console.log(e);
 });
