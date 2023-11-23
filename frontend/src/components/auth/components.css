@@ -1,0 +1,10 @@
+.Login-button {
+  color: #232323;
+  background-color: #61dafb; /* Change the background color */
+  font-size: 24px;
+  border: 0px solid #ffffff; /* Set the border width and color */
+  border-radius: 8px; /* Add rounded edges */
+  padding: 20px 50px; /* Add padding for better appearance */
+   /* color: #ffffff; Set text color */
+  cursor: pointer; /* Change cursor style on hover */
+}
