@@ -19,7 +19,7 @@ export const TravelForm = () => {
       interest3: Yup.string().required('Interest 3 is required'),
     }),
     onSubmit: (values) => {
-      // Handle form submission here
+      // back end call to yelp fusion api here? How to do
       console.log(values);
     },
   });
