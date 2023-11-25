@@ -1,5 +1,6 @@
 // load .env data into process.env
 require("dotenv").config();
+const path = require("path");
 
 // Web server config
 const express = require("express");
@@ -13,6 +14,11 @@ const app = express();
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
+
+//react
+
+app.use(express.static(path.join(__dirname, "..", "frontend", "build")));
+app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -34,6 +40,11 @@ app.use("/users", usersRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello");
+});
+
+//serve react
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "build", "index.html"));
 });
 
 app.listen(PORT, () => {
