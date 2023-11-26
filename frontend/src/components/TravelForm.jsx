@@ -8,6 +8,8 @@ export const TravelForm = () => {
     initialValues: {
       destination: '',
       locationFromDeparture: '',
+      departureDate: '',
+      returnDate: '',
       interest1: '',
       interest2: '',
       interest3: '',
@@ -15,6 +17,8 @@ export const TravelForm = () => {
     validationSchema: Yup.object({
       destination: Yup.string().required('Destination is required'),
       locationFromDeparture: Yup.string().required('Location from departure is required'),
+      departureDate: Yup.string().required('Departure date required'),
+      returnDate: Yup.string().required('Return date required'),
       interest1: Yup.string().required('Interest 1 is required'),
       interest2: Yup.string().required('Interest 2 is required'),
       interest3: Yup.string().required('Interest 3 is required'),
@@ -41,6 +45,36 @@ export const TravelForm = () => {
         />
         {formik.touched.destination && formik.errors.destination && (
           <div>{formik.errors.destination}</div>
+        )}
+      </div>
+
+      <div>
+        <label htmlFor="departureDate">Departure date:</label>
+        <input
+          type="text"
+          id="departureDate"
+          name="departureDate"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.departureDate}
+        />
+        {formik.touched.departureDate && formik.errors.departureDate && (
+          <div>{formik.errors.departureDate}</div>
+        )}
+      </div>
+
+      <div>
+        <label htmlFor="returnDate">Return Date:</label>
+        <input
+          type="text"
+          id="returnDate"
+          name="returnDate"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.returnDate}
+        />
+        {formik.touched.returnDate && formik.errors.returnDate && (
+          <div>{formik.errors.returnDate}</div>
         )}
       </div>
 
