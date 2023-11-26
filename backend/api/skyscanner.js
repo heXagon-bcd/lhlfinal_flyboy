@@ -29,17 +29,19 @@ const optionsFlights = {
   },
 };
 
-axios
-  .request(optionsFlightLocation)
-  .then((response) => {
-    // console.log(response.data.data);
-    // console.log(response.data.data.map((item) => item.code));
-    const location = response.data.data.map((item) => item.code);
-  })
-  // .request(optionsFlights)
-  // .then((response) => {
-  //   console.log("options.flight", response.data);
-  // })
-  .catch((error) => {
-    console.error(error);
-  });
+const getFlightData = () => {
+  console.log("Making API request to fetch flight data");
+  return axios
+    .request(optionsFlightLocation)
+    .then((response) => {
+      const location = response.data.data.map((item) => item.code);
+      console.log("location", location);
+      return location;
+    })
+    .catch((error) => {
+      console.error(error);
+      throw error; // Throw the error to handle it in the router
+    });
+};
+
+module.exports = { getFlightData };
