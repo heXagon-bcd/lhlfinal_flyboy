@@ -11,15 +11,15 @@ async function search(term, location) {
     };
 
     const response = await client.search(searchRequest);
-    const secondResult = response.jsonBody.businesses[1];
+    const result = response.jsonBody.businesses[0];
 
     const resultObj = {
-      id: secondResult.id,
-      name: secondResult.name,
-      image: secondResult.image_url,
-      categories: secondResult.categories,
-      rating: secondResult.rating,
-      location: secondResult.location.address1
+      id: result.id,
+      name: result.name,
+      image: result.image_url,
+      categories: result.categories,
+      rating: result.rating,
+      location: result.location.address1
     };
 
     return resultObj;
