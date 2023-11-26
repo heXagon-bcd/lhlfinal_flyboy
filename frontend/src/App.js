@@ -1,8 +1,10 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./homepage";
 import LoginButton from "./components/auth/login";
 import LogoutButton from "./components/auth/logout";
 import Profile from "./components/auth/profile";
+import QueryPage from "./results";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -12,33 +14,13 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            {/* Edit <code>src/App.js</code> and save to reload. */}
-            Welcome to FlyBoy!
-          </p>
-          {isAuthenticated ? (
-            <>
-              <Profile />
-              <LogoutButton />
-            </>
-          ) : (
-            <LoginButton />
-          )}
-        </header>
-        <Switch>
-          <Route path="/login">
-            <LoginButton />
-          </Route>
-          <Route path="/logout">
-            <LogoutButton />
-          </Route>
-          <Route path="/flight">
-            <Profile />
-          </Route>
-          {/* Add more routes as needed */}
-        </Switch>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginButton />} />
+          <Route path="/logout" element={<LogoutButton />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/test" element={<QueryPage />} />
+        </Routes>
       </div>
     </Router>
   );

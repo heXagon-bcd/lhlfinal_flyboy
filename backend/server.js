@@ -1,5 +1,6 @@
 // load .env data into process.env
 require("dotenv").config();
+const flightAPIRouter = require("./routes/flight");
 const path = require("path");
 
 // Web server config
@@ -8,6 +9,14 @@ const morgan = require("morgan");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
+
+//cors
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "http://localhost:3001",
+  })
+);
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -25,6 +34,7 @@ app.use(express.static("public"));
 const userApiRoutes = require("./routes/users-api");
 const widgetApiRoutes = require("./routes/widgets-api");
 const usersRoutes = require("./routes/users");
+const flightAPI = require("./api/skyscanner");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -32,6 +42,7 @@ const usersRoutes = require("./routes/users");
 app.use("/api/users", userApiRoutes);
 app.use("/api/widgets", widgetApiRoutes);
 app.use("/users", usersRoutes);
+app.use("/api", flightAPIRouter);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -43,9 +54,9 @@ app.get("/", (req, res) => {
 });
 
 //serve react
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "frontend", "build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "..", "frontend", "build", "index.html"));
+// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
