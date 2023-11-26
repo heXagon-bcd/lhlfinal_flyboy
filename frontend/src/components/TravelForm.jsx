@@ -1,6 +1,7 @@
-import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
+import '../style/TravelForm.css'
 
 export const TravelForm = () => {
   const formik = useFormik({
@@ -18,8 +19,10 @@ export const TravelForm = () => {
       interest2: Yup.string().required('Interest 2 is required'),
       interest3: Yup.string().required('Interest 3 is required'),
     }),
-    onSubmit: (values) => {
-      // back end call to yelp fusion api here? How to do
+    onSubmit: async (values) => {
+      const res = await axios.post("http://localhost:8080/api/flights", values);
+      console.log("res" + res);
+
       console.log(values);
     },
   });
