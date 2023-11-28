@@ -8,6 +8,7 @@
 const express = require('express');
 const router  = express.Router();
 const userQueries = require('../db/queries/users');
+const userItineraryQuery = require('../db/queries/user-itinerary');
 
 router.get('/', (req, res) => {
   userQueries.getUsers()
@@ -20,5 +21,25 @@ router.get('/', (req, res) => {
         .json({ error: err.message });
     });
 });
+
+router.post('/', (req, res) => {
+  // console.log(req.body)
+  const sub = req.body.user.sub
+  console.log('User Sub:', sub);
+
+  userItineraryQuery.getItinerary(sub)
+    .then(itineraries => {
+      console.log('Itineraries:', itineraries);
+      // res.send(itineraries)
+      res.json({ itineraries })
+    })
+  // res.send('it works!')
+  .catch(err => { // is this catch correct?
+    console.error('Error fetching itinerary:', err);
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+})
 
 module.exports = router;
