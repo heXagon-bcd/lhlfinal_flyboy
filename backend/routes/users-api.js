@@ -22,24 +22,32 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   // console.log(req.body)
   const sub = req.body.user.sub
   console.log('User Sub:', sub);
-
-  userItineraryQuery.getItinerary(sub)
-    .then(itineraries => {
-      console.log('Itineraries:', itineraries);
-      // res.send(itineraries)
-      res.json({ itineraries })
-    })
-  // res.send('it works!')
-  .catch(err => { // is this catch correct?
-    console.error('Error fetching itinerary:', err);
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+  
+  try {
+    const itineraries = await userItineraryQuery.getItinerary(sub)
+    const userID = 2 //await another function that takes a subID that returns another 
+    res.json({ itineraries, userID })
+  } catch(error) {
+    console.error(error)
+  }
+  
+  // userItineraryQuery.getItinerary(sub)
+  //   .then(itineraries => {
+  //     console.log('Itineraries:', itineraries);
+  //     // res.send(itineraries)
+  //     res.json({ itineraries })
+  //   })
+  // // res.send('it works!')
+  // .catch(err => { // is this catch correct?
+  //   console.error('Error fetching itinerary:', err);
+  //   res
+  //     .status(500)
+  //     .json({ error: err.message });
+  // });
 })
 
 module.exports = router;

@@ -22,8 +22,9 @@ const Profile = () => {
             user,
           });
           console.log("Backend Response:", response.data);
-          const { itineraries = [] } = response.data;
+          const { itineraries = [], userID } = response.data;
           console.log(itineraries);
+          window.sessionStorage.setItem('userID', userID)
           setItineraries(itineraries); // Update the state with fetched
           // Handle the response as needed
         } catch (error) {
@@ -40,6 +41,8 @@ const Profile = () => {
     return <div>Loading ...</div>;
   }
 
+  console.log(window.sessionStorage.getItem('userID'))
+
   return (
     isAuthenticated && (
       <div>
@@ -48,6 +51,7 @@ const Profile = () => {
         <p>E-mail: {user.email}</p>
 
         {/* Display itineraries in a table */}
+        <center>
         <table class="itineraries-table">
           <thead>
             <tr>
@@ -69,6 +73,7 @@ const Profile = () => {
             ))}
           </tbody>
         </table>
+        </center>
       </div>
     )
   );
