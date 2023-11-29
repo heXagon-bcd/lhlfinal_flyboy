@@ -25,7 +25,7 @@ async function search(term, location) {
     return resultObj;
   } catch (error) {
     console.error('Error in Yelp API request:', error);
-    throw error; // Rethrow the error so the caller can handle it
+    throw error; 
   }
 }
 
