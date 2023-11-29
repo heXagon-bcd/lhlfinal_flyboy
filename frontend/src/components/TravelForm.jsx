@@ -27,7 +27,7 @@ export const TravelForm = () => {
       const res = await axios.post("http://localhost:8080/api/flight", values);
       console.log("res" + res);
 
-      console.log(values);
+      console.log("values",values);
     },
   });
 

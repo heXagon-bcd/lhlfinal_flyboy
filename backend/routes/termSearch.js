@@ -8,6 +8,8 @@ router.post("/flight", async (request, response) => {
     const location = request.body.destination;
 
     const result = await search(terms, location);
+    console.log("request", request);
+    console.log("response", response);
 
     console.log(result);
     response.json({ result });
