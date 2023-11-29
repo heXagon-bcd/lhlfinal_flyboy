@@ -7,7 +7,7 @@ import Profile from "./components/auth/profile";
 import QueryPage from "./results";
 import logo from "./logo.svg";
 import "./App.css";
-import { TravelForm } from "./components/TravelForm";
+import { Form } from "./components/Form";
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -21,7 +21,7 @@ function App() {
           <Route path="/logout" element={<LogoutButton />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/test" element={<QueryPage />} />
-          <Route path="/form" element={<TravelForm />} />
+          <Route path="/form" element={<Form />} />
         </Routes>
       </div>
     </Router>
