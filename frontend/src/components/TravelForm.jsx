@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import '../style/TravelForm.css'
 
-export const TravelForm = () => {
+export const TravelForm = ({ onSubmit }) => {
   const formik = useFormik({
     initialValues: {
       destination: '',
@@ -24,10 +24,13 @@ export const TravelForm = () => {
       interest3: Yup.string().required('Interest 3 is required'),
     }),
     onSubmit: async (values) => {
-      const res = await axios.post("http://localhost:8080/api/flight", values);
-      console.log("res" + res);
-
-      console.log(values);
+      try {
+        const res = await axios.post("http://localhost:8080/api/flight", values);
+        console.log("res" + res);
+        onSubmit(res.data.result);
+      } catch (error) {
+        console.error("Error:", error);
+      }
     },
   });
 
