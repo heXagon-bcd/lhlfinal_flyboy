@@ -1,4 +1,5 @@
 const axios = require("axios");
+const moment = require("moment");
 
 // const startLocation = "toronto";
 
@@ -51,6 +52,7 @@ const getFlightData = async (
     );
     const dataResponse = startLocationResponse.data.data[0].id; //retunrs city id
     const dataEndResponse = startEndLocationResponse.data.data[0].id; // return cityid
+
     console.log("startLocationResponse", dataResponse);
 
     //flight data api
@@ -60,8 +62,8 @@ const getFlightData = async (
       params: {
         fromId: dataResponse,
         toId: dataEndResponse,
-        departDate: "2023-12-01",
-        returnDate: "2023-12-30",
+        departDate: moment(startDate, "M/D/YYYY").format("YYYY-MM-DD"),
+        returnDate: moment(returnDate, "M/D/YYYY").format("YYYY-MM-DD"),
         pageNo: "1",
         adults: "1",
         children: "0,17",
@@ -72,6 +74,8 @@ const getFlightData = async (
         "X-RapidAPI-Host": "booking-com15.p.rapidapi.com",
       },
     };
+
+    console.log("date api call", optionsFlights);
 
     //query response
     const flightResponseRequest = await axios.request(optionsFlights);
@@ -84,7 +88,7 @@ const getFlightData = async (
       return price.travellerType === "ADULT";
     });
     // console.log("bestFlightArray", bestFlightArray);
-    // console.log("flightResponseREquest", bestFlight);
+    console.log("flightResponseREquest", flightResponseRequest);
     // console.log("bestflightdetials", bestFlightDetails);
 
     //returns price info from server

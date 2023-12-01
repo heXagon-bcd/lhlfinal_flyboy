@@ -13,6 +13,8 @@ router.post("/flight", async (request, response) => {
     const sDate = request.body.departureDate;
     const rDate = request.body.returnDate;
 
+    console.log("term search dates", sDate, rDate);
+
     console.log("startLocation", startLocation);
 
     const result = await search(terms, location);
