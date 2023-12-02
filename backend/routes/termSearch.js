@@ -4,10 +4,10 @@ const { search } = require("./helper/search");
 
 router.post("/flight", async (request, response) => {
   try {
-    const terms = request.body.interest1;
-    const location = request.body.destination;
+    const { interest1, interest2, interest3, destination } = request.body;
+    const terms = [interest1, interest2, interest3]; 
 
-    const result = await search(terms, location);
+    const result = await search(terms, destination);
 
     console.log(result);
     response.json({ result });
