@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { search } = require("./helper/search");
 const { getFlightData } = require("../api/skyscanner");
+const { getHotelData } = require("../api/hotelscanner");
 
 router.post("/flight", async (request, response) => {
   try {
@@ -24,10 +25,17 @@ router.post("/flight", async (request, response) => {
       sDate,
       rDate
     );
+    const hotelDataReturn = await getHotelData(
+      startLocation,
+      endLocation,
+      sDate,
+      rDate
+    );
 
     console.log("response result termsearch", [
       { yelpApi: result },
       { bookingsAPI: flightDataReturn },
+      { hotelAPI: hotelDataReturn },
     ]);
     response.json([{ yelpApi: result }, { bookingsAPI: flightDataReturn }]);
   } catch (error) {
