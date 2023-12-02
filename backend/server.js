@@ -1,6 +1,7 @@
 // load .env data into process.env
 require("dotenv").config();
 const flightAPIRouter = require("./routes/flight");
+const termSearchRouter = require("./routes/termSearch")
 const path = require("path");
 
 // Web server config
@@ -14,7 +15,7 @@ const app = express();
 const cors = require("cors");
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: "http://localhost:3002",
   })
 );
 
@@ -22,7 +23,10 @@ app.use(
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan("dev"));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+//app.use(cors());
+
 
 //react
 
@@ -35,7 +39,7 @@ const userApiRoutes = require("./routes/users-api");
 const widgetApiRoutes = require("./routes/widgets-api");
 const usersRoutes = require("./routes/users");
 const flightAPI = require("./api/skyscanner");
-
+const termSearch = require("./routes/helper/search")
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -43,6 +47,7 @@ app.use("/api/users", userApiRoutes);
 app.use("/api/widgets", widgetApiRoutes);
 app.use("/users", usersRoutes);
 app.use("/api", flightAPIRouter);
+app.use("/api", termSearchRouter)
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -57,6 +62,7 @@ app.get("/", (req, res) => {
 // app.get("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "..", "frontend", "build", "index.html"));
 // });
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
