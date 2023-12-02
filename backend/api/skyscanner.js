@@ -62,8 +62,8 @@ const getFlightData = async (
       params: {
         fromId: dataResponse,
         toId: dataEndResponse,
-        departDate: moment(startDate, "M/D/YYYY").format("YYYY-MM-DD"),
-        returnDate: moment(returnDate, "M/D/YYYY").format("YYYY-MM-DD"),
+        departDate: moment(startDate, "YYYY-MM-DD").format("YYYY-MM-DD"),
+        returnDate: moment(returnDate, "YYYY-MM-DD  ").format("YYYY-MM-DD"),
         pageNo: "1",
         adults: "1",
         children: "0,17",

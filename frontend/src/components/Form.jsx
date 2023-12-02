@@ -7,6 +7,7 @@ export const Form = () => {
 
     const handleFormSubmit = (data) => {
         setSubmittedData((prevData) => [...prevData, data]);
+        console.log("handleFormSubmit", data)
     }
 
     return (

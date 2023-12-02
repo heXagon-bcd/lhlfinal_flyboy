@@ -26,7 +26,9 @@ export const TravelForm = ({ onSubmit }) => {
     onSubmit: async (values) => {
       try {
         const res = await axios.post("http://localhost:8080/api/flight", values);
-        onSubmit(res.data.result);
+        onSubmit(res.data[0].yelpApi);
+        console.log("form submission..", res.data[0].yelpApi);
+        console.log("form submission values", values)
       } catch (error) {
         console.error("Error:", error);
       }
