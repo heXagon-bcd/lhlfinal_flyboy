@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import '../style/TravelForm.css'
 
-export const TravelForm = () => {
+export const TravelForm = ({ onSubmit }) => {
   const formik = useFormik({
     initialValues: {
       destination: '',
@@ -17,17 +17,19 @@ export const TravelForm = () => {
     validationSchema: Yup.object({
       destination: Yup.string().required('Destination is required'),
       locationFromDeparture: Yup.string().required('Location from departure is required'),
-      departureDate: Yup.string().required('Departure date required'),
-      returnDate: Yup.string().required('Return date required'),
+      departureDate: Yup.date().required('Departure date required'),
+      returnDate: Yup.date().required('Return date required'),
       interest1: Yup.string().required('Interest 1 is required'),
       interest2: Yup.string().required('Interest 2 is required'),
       interest3: Yup.string().required('Interest 3 is required'),
     }),
     onSubmit: async (values) => {
-      const res = await axios.post("http://localhost:8080/api/flight", values);
-      console.log("res" + res);
-
-      console.log("values",values);
+      try {
+        const res = await axios.post("http://localhost:8080/api/flight", values);
+        onSubmit(res.data.result);
+      } catch (error) {
+        console.error("Error:", error);
+      }
     },
   });
 
@@ -51,7 +53,7 @@ export const TravelForm = () => {
       <div>
         <label htmlFor="departureDate">Departure date:</label>
         <input
-          type="text"
+          type="date"
           id="departureDate"
           name="departureDate"
           onChange={formik.handleChange}
@@ -66,7 +68,7 @@ export const TravelForm = () => {
       <div>
         <label htmlFor="returnDate">Return Date:</label>
         <input
-          type="text"
+          type="date"
           id="returnDate"
           name="returnDate"
           onChange={formik.handleChange}
