@@ -4,7 +4,7 @@ import HomePage from "./homepage";
 import LoginButton from "./components/auth/login";
 import LogoutButton from "./components/auth/logout";
 import Profile from "./components/auth/profile";
-import QueryPage from "./results";
+import QueryPage from "./components/results/";
 import logo from "./logo.svg";
 import "./App.css";
 import { Form } from "./components/Form";

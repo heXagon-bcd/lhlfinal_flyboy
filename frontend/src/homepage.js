@@ -11,10 +11,10 @@ export default function HomePage() {
   return (
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
-      <p>
+      <h1>
         {/* Edit <code>src/App.js</code> and save to reload. */}
         Welcome to FlyBoy!
-      </p>
+      </h1>
       {isAuthenticated ? (
         <>
           <Profile />
