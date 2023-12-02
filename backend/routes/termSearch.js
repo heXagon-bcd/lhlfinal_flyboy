@@ -6,16 +6,19 @@ const { getFlightData } = require("../api/skyscanner");
 router.post("/flight", async (request, response) => {
   try {
     console.log("term search response.body", request.body);
-    const terms = request.body.interest1;
-    const location = request.body.destination;
+    const { interest1, interest2, interest3 } = request.body;
+    const terms = [interest1, interest2, interest3];
+    
     const startLocation = request.body.locationFromDeparture; //may need refactoring
     const endLocation = request.body.destination;
+
     const sDate = request.body.departureDate;
     const rDate = request.body.returnDate;
 
     console.log("startLocation", startLocation);
 
-    const result = await search(terms, location);
+    const result = await search(terms, endLocation);
+
     const flightDataReturn = await getFlightData(
       startLocation,
       endLocation,
