@@ -3,29 +3,33 @@ const apiKey = 'SDzrM8FUGWFMAO8pHOpg2TWbF58Raa8e_hC7RDxjOAjue8DNYrPih-R_qsEW7hpu
 
 const client = yelp.client(apiKey);
 
-async function search(term, location) {
+async function search(terms, location) {
   try {
-    const searchRequest = {
-      term: term,
-      location: location
-    };
+    const resultsArray = [];
 
-    const response = await client.search(searchRequest);
-    const result = response.jsonBody.businesses[0];
+    for (const term of terms) {
+      const searchRequest = {
+        term: term,
+        location: location
+      };
 
-    const resultObj = {
-      id: result.id,
-      name: result.name,
-      image: result.image_url,
-      categories: result.categories,
-      rating: result.rating,
-      location: result.location.address1
-    };
+      const response = await client.search(searchRequest);
+      const result = response.jsonBody.businesses[0];
 
-    return resultObj;
+      resultsArray.push({
+        id: result.id,
+        name: result.name,
+        image: result.image_url,
+        categories: result.categories,
+        rating: result.rating,
+        location: result.location.address1
+      });
+    }
+
+    return resultsArray;
   } catch (error) {
     console.error('Error in Yelp API request:', error);
-    throw error; 
+    throw error;
   }
 }
 
