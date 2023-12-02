@@ -17,8 +17,8 @@ export const TravelForm = ({ onSubmit }) => {
     validationSchema: Yup.object({
       destination: Yup.string().required('Destination is required'),
       locationFromDeparture: Yup.string().required('Location from departure is required'),
-      departureDate: Yup.string().required('Departure date required'),
-      returnDate: Yup.string().required('Return date required'),
+      departureDate: Yup.date().required('Departure date required'),
+      returnDate: Yup.date().required('Return date required'),
       interest1: Yup.string().required('Interest 1 is required'),
       interest2: Yup.string().required('Interest 2 is required'),
       interest3: Yup.string().required('Interest 3 is required'),
@@ -26,7 +26,6 @@ export const TravelForm = ({ onSubmit }) => {
     onSubmit: async (values) => {
       try {
         const res = await axios.post("http://localhost:8080/api/flight", values);
-        console.log("res" + res);
         onSubmit(res.data.result);
       } catch (error) {
         console.error("Error:", error);
@@ -54,7 +53,7 @@ export const TravelForm = ({ onSubmit }) => {
       <div>
         <label htmlFor="departureDate">Departure date:</label>
         <input
-          type="text"
+          type="date"
           id="departureDate"
           name="departureDate"
           onChange={formik.handleChange}
@@ -69,7 +68,7 @@ export const TravelForm = ({ onSubmit }) => {
       <div>
         <label htmlFor="returnDate">Return Date:</label>
         <input
-          type="text"
+          type="date"
           id="returnDate"
           name="returnDate"
           onChange={formik.handleChange}
