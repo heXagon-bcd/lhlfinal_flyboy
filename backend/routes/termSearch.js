@@ -38,6 +38,11 @@ router.post("/flight", async (request, response) => {
       { hotelAPI: hotelDataReturn },
     ]);
     response.json([{ yelpApi: result }, { bookingsAPI: flightDataReturn }]);
+    console.log("request", request);
+    console.log("response", response);
+
+    console.log(result);
+    response.json({ result });
   } catch (error) {
     console.error("Error in /api/flights route:", error);
     response.status(500).json({ error: "Internal Server Error" });
