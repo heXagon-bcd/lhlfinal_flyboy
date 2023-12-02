@@ -8,6 +8,7 @@ import QueryPage from "./components/results/";
 import logo from "./logo.svg";
 import "./App.css";
 import { Form } from "./components/Form";
+import Itinerary from "./components/itinerary";
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -22,6 +23,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/test" element={<QueryPage />} />
           <Route path="/form" element={<Form />} />
+          <Route path="/itinerary" element={<Itinerary />} />
         </Routes>
       </div>
     </Router>
