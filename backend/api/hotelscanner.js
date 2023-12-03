@@ -31,8 +31,8 @@ const getHotelData = async (
       params: {
         dest_id: cityID,
         search_type: "CITY",
-        arrival_date: moment(startDate, "M/D/YYYY").format("YYYY-MM-DD"),
-        departure_date: moment(returnDate, "M/D/YYYY").format("YYYY-MM-DD"),
+        arrival_date: moment(startDate, "YYYY-MM-DD").format("YYYY-MM-DD"),
+        departure_date: moment(returnDate, "YYYY-MM-DD").format("YYYY-MM-DD"),
         adults: "1",
         room_qty: "1",
         page_number: "1",
@@ -50,10 +50,7 @@ const getHotelData = async (
     const hotelPriceData =
       hotelPrice.data.data.hotels[0].property.priceBreakdown.grossPrice.value;
     const hotelDescription = hotelPrice.data.data.hotels[0].accessibilityLabel;
-    // console.log(
-    //   "Retrieving hotel price...",
-    //   hotelPrice.data.data.hotels[0].accessibilityLabel
-    // );
+    // console.log("Retrieving hotel price...", hotelPrice.data.data.hotels[0]);
 
     return {
       cityID: cityID,
