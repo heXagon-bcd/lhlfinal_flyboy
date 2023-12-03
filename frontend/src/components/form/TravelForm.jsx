@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import '../style/TravelForm.css'
+import '../../style/TravelForm.css'
 
 export const TravelForm = ({ onSubmit }) => {
   const formik = useFormik({

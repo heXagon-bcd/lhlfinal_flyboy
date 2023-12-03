@@ -43,7 +43,7 @@ router.post("/flight", async (request, response) => {
       { yelpApi: result },
       { bookingsAPI: flightDataReturn },
       { hotelAPI: hotelDataReturn },
-    ]);
+    ]); //sends object back to client
   } catch (error) {
     console.error("Error in /api/flights route:", error);
     response.status(500).json({ error: "Internal Server Error" });

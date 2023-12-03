@@ -7,7 +7,7 @@ import Profile from "./components/auth/profile";
 import QueryPage from "./components/results/";
 import logo from "./logo.svg";
 import "./App.css";
-import { Form } from "./components/Form";
+import { Form } from "./components/form/Form";
 import Itinerary from "./components/itinerary";
 
 function App() {
