@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { TravelForm } from './TravelForm';
 import { TravelFormModal } from './TravelFormModal';
+import { FlightHotelModal } from './FlightHotelModal';
 
 export const Form = () => {
     const [submittedData, setSubmittedData] = useState([]);
@@ -17,6 +18,8 @@ export const Form = () => {
             {submittedData.map((data, index) => (
                 <TravelFormModal key={index} data={data} />
             ))}
+            <h1> Flight & Hotel Prices</h1>
+
         </div>
     );
 };

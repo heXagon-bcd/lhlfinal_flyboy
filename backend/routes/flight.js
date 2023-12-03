@@ -20,7 +20,7 @@ router.get("/flightAPI", async (request, response) => {
   console.log("Accessed /api/flightAPI");
   try {
     const data = await getFlightData();
-    const hotelData = await getHotelData();
+    const hotelData = await getHotelData();//add data to database after this line
     console.log("router response", data, hotelData);
     console.log("Hello");
     response.json({ data, hotelData }); // It's better to use response.json for sending JSON data
