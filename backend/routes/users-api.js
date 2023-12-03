@@ -5,49 +5,54 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-const express = require('express');
-const router  = express.Router();
-const userQueries = require('../db/queries/users');
-const userItineraryQuery = require('../db/queries/user-itinerary');
+const express = require("express");
+const router = express.Router();
+const userQuery = require("../db/queries/users");
+const newUserQuery = require("../db/queries/new-user");
+const userItineraryQuery = require("../db/queries/user-itinerary");
 
-router.get('/', (req, res) => {
-  userQueries.getUsers()
-    .then(users => {
+router.get("/", (req, res) => {
+  userQuery
+    .getUsers()
+    .then((users) => {
       res.json({ users });
     })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
     });
 });
 
-router.post('/', async (req, res) => {
-  // console.log(req.body)
-  const sub = req.body.user.sub
-  console.log('User Sub:', sub);
-  
+router.post("/", async (req, res) => {
+  const sub = req.body.user.sub;
+  console.log("User Sub:", sub);
+
+  // Make a funciton , that checks the DB for an exsiting matching sub
+  // if there is a match, return that match ie SELECT * FROM USERS where sub = '.....
+  // if there is not match insert that the users ttable with the sub
+
   try {
-    const itineraries = await userItineraryQuery.getItinerary(sub)
-    const userID = 2 //await another function that takes a subID that returns another 
-    res.json({ itineraries, userID })
-  } catch(error) {
-    console.error(error)
+    const user = await userQuery.getUser(sub);
+
+    if (user && user.length > 0 && sub === user[0].sub) {
+      const userProfile = user[0];
+      const itineraries = await userItineraryQuery.getItinerary(sub);
+      res.json({ itineraries, userProfile });
+
+    } else {
+      const firstName = req.body.user.nickname || "Spongebob";
+      const lastName = "Squarepants";
+
+      const newUser = await newUserQuery.addUser(firstName, lastName, sub);
+      const userProfile = newUser[0];
+      const itineraries = await userItineraryQuery.getItinerary(sub);
+      res.json({ itineraries, userProfile });
+    }
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
   }
-  
-  // userItineraryQuery.getItinerary(sub)
-  //   .then(itineraries => {
-  //     console.log('Itineraries:', itineraries);
-  //     // res.send(itineraries)
-  //     res.json({ itineraries })
-  //   })
-  // // res.send('it works!')
-  // .catch(err => { // is this catch correct?
-  //   console.error('Error fetching itinerary:', err);
-  //   res
-  //     .status(500)
-  //     .json({ error: err.message });
-  // });
-})
+
+});
 
 module.exports = router;
