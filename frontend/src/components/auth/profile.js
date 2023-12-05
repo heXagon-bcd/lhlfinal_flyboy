@@ -1,7 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import './components.css';
+import '../../style/auth.css'
 
 // make useEffect that makes axios request, sends user object to backend (complete)
 // backend receives user object (complete)

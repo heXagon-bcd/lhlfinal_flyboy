@@ -1,0 +1,135 @@
+.splash-page {
+  background-image: url('https://sdxl-h-p-4.stablediffusionweb.com/file=/tmp/gradio/75c68c69a5aa52d719b7c1c29c6ff568f483e7d3/image.png'); /* Replace 'your-image-url.jpg' with the path to your image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.welcome-text {
+  font-size: 2.5rem; /* Adjust the font size based on your design */
+  margin: 0px; /* Add spacing below the heading */
+  color: rgb(248, 63, 63);
+  /* font-family: 'Poiret One', sans-serif; */
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.welcome-logo {
+  margin: 0px;
+  font-size: 6rem; /* Adjust the font size as needed */
+  color: #005085;
+  font-family: 'Lobster Two', sans-serif;
+  font-weight: 700; /* Bold */
+  font-style: italic; /* Italic */
+  text-shadow: -4px -4px 0 white, 4px -4px 0 white, -4px 4px 0 white, 4px 4px 0 white;
+  }
+
+.welcome-text-2 {
+  position: relative;
+  display: inline-block;
+  margin-top: 50px;
+  padding-left: 20px;
+  padding-right: 10px;
+  padding-top: 0px;
+  padding-bottom: 3px;
+  background-color:#005085;
+  font-family: 'Dhurjati', sans-serif;
+  /* font-family: 'Poiret One', sans-serif; */
+  font-size: 1.7rem;
+}
+
+.welcome-text-2::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -27px; /* Adjust the margin to vertically center the arrow */
+  border-width: 27px;
+  border-style: solid;
+  border-color: transparent transparent transparent #005085; /* Match the background color */
+}
+  .splash-page {
+    height: 100vh; /* Set the height of the splash page to 100% of the viewport height */
+  }
+  
+  /* Adjust the background position for screens 1200px and below */
+  @media (max-width: 700px) {
+    .splash-page {
+      background-position: center center;
+      height: 95vh;
+    }
+    .welcome-top {
+      margin-top: 30px;
+    }
+    .welcome-bottom {
+      margin-top: 15vh;
+    }
+    .welcome-text {
+      font-size: 1.5rem;
+    }
+    .welcome-logo {
+      font-size: 5rem;
+    }
+    .welcome-text-2 {
+      position: relative;
+      display: inline-block;
+      top: -3%;
+      margin-top: 50px;
+      padding-left: 20px;
+      padding-right: 10px;
+      padding-top: 0px;
+      padding-bottom: 3px;
+      background-color:#005085;
+      font-family: 'Dhurjati', sans-serif;
+      /* font-family: 'Poiret One', sans-serif; */
+      font-size: 1rem;
+    }
+    .welcome-text-2::before {
+      content: '';
+      position: absolute;
+      top: 45%;
+      left: 100%;
+      margin-top: -15px; /* Adjust the margin to vertically center the arrow */
+      border-width: 16px;
+      border-style: solid;
+      border-color: transparent transparent transparent #005085; /* Match the background color */
+    }
+  }
+
+  @media (min-width: 701px) {
+    .splash-page {
+      background-position: center 35%;
+      height: 95vh;
+    }
+    .welcome-top {
+      margin-top: 30px;
+    }
+    .welcome-bottom {
+      margin-top: 20vh;
+    }
+    .welcome-text {
+      font-size: 1.5rem;
+    }
+    .welcome-logo {
+      font-size: 5rem;
+    }
+  }
+
+  /* Adjust the background position for screens 1200px and below */
+  @media (min-width: 1024px) {
+    .splash-page {
+      background-position: center 30%;
+    }
+    .welcome-top {
+      margin-top: 30px;
+    }
+    .welcome-bottom {
+      margin-top: 30vh;
+    }
+  }
+  
