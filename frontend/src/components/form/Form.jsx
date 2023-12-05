@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { TravelForm } from './TravelForm';
 import { TravelFormModal } from './TravelFormModal';
 import { FlightHotelModal } from './FlightHotelModal';
+import { Spinner } from '../spinner/spinner';
 
 export const Form = () => {
     const [submittedData, setSubmittedData] = useState([]);
@@ -16,7 +17,6 @@ export const Form = () => {
     const EMPTY = "EMPTY";
     const SHOW = "SHOW";
 
-
     return (
         <div>
           { submittedData.length === 0 && (<div>
@@ -26,7 +26,6 @@ export const Form = () => {
 
             {submittedData.length > 0 && (<div>
             <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Travel App</h1>
-            <TravelForm onSubmit={handleFormSubmit} />
             <h1> Flight & Hotel Prices</h1>
             {<FlightHotelModal data = {submittedData[0]}/>}
             <h1>Interests</h1>

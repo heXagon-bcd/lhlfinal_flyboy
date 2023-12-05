@@ -1,9 +1,12 @@
 import { useFormik } from 'formik';
+import React, {useEffect, useState} from 'react';
 import * as Yup from 'yup';
 import axios from 'axios';
 import '../../style/TravelForm.css'
+import airplane from "../../flight-loader.svg";
 
 export const TravelForm = ({ onSubmit }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
       destination: '',
@@ -24,6 +27,7 @@ export const TravelForm = ({ onSubmit }) => {
       interest3: Yup.string().required('Interest 3 is required'),
     }),
     onSubmit: async (values) => {
+      setIsLoading(true);
       try {
         const res = await axios.post("http://localhost:8080/api/flight", values);
         onSubmit(res.data);
@@ -32,12 +36,16 @@ export const TravelForm = ({ onSubmit }) => {
         // console.log("form submission values", values)
       } catch (error) {
         console.error("Error:", error);
+      } finally {
+        setIsLoading(false);
       }
     },//use promise instead
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <div>
+    {isLoading ?(<img src={airplane} alt="Loading" />) :
+    (<form onSubmit={formik.handleSubmit}>
       <div>
         <label htmlFor="destination">Destination:</label>
         <input
@@ -138,6 +146,7 @@ export const TravelForm = ({ onSubmit }) => {
       </div>
 
       <button type="submit">Submit</button>
-    </form>
+    </form>)}
+</div>
   );
 };
