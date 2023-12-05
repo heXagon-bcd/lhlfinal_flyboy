@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getFlightData } from "../api/skyscannerProxy";
+import { getFlightData } from "../../api/skyscannerProxy";
 
 export default function QueryPage() {
   const [flightData, setFlightData] = useState(null);

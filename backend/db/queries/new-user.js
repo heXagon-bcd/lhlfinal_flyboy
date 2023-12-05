@@ -1,8 +1,9 @@
 const db = require('../connection');
 
-const getUser = (userID) => {
-  return db.query('SELECT * FROM users WHERE sub = $1;'
-  , [userID])
+const addUser = (firstName, lastName, sub) => {
+  return db.query(`INSERT INTO users (first_name, last_name, sub) VALUES
+  ($1, $2, $3) RETURNING *;`
+  , [firstName, lastName, sub])
   .then(data => {
     return data.rows;
   })
@@ -12,4 +13,7 @@ const getUser = (userID) => {
   });
 };
 
-module.exports = { getUser };
+module.exports = { addUser };
+
+
+

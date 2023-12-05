@@ -4,10 +4,11 @@ import HomePage from "./homepage";
 import LoginButton from "./components/auth/login";
 import LogoutButton from "./components/auth/logout";
 import Profile from "./components/auth/profile";
-import QueryPage from "./results";
+import QueryPage from "./components/results/";
 import logo from "./logo.svg";
 import "./App.css";
-import { TravelForm } from "./components/TravelForm";
+import { Form } from "./components/form/Form";
+import Itinerary from "./components/itinerary";
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -21,7 +22,8 @@ function App() {
           <Route path="/logout" element={<LogoutButton />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/test" element={<QueryPage />} />
-          <Route path="/form" element={<TravelForm />} />
+          <Route path="/form" element={<Form />} />
+          <Route path="/itinerary" element={<Itinerary />} />
         </Routes>
       </div>
     </Router>

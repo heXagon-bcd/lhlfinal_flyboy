@@ -9,22 +9,28 @@ import './components.css';
 // send db obj to frontend
 // needs useState (implement before useEffect) and then call it within useEffect
 
+
+
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0(); // send user object to backend
   const [itineraries, setItineraries] = useState([]);
+  const [userProfile, setUserProfile] = useState([]);
+  console.log(user)
 
   useEffect(() => {
     const sendUserToBackend = async () => {
       if (isAuthenticated) {
         try {
-          // Assuming your backend endpoint for handling user data is '/api/user'
+          // Backend endpoint for handling user data is '/api/user'
           const response = await axios.post("http://localhost:8080/api/users", {
             user,
           });
           console.log("Backend Response:", response.data);
-          const { itineraries = [], userID } = response.data;
+          const { itineraries = [], userProfile } = response.data;
           console.log(itineraries);
-          window.sessionStorage.setItem('userID', userID)
+          console.log(userProfile)
+        window.sessionStorage.setItem('userID', userProfile.id) // Saves data to session
+          setUserProfile(userProfile);
           setItineraries(itineraries); // Update the state with fetched
           // Handle the response as needed
         } catch (error) {
@@ -46,16 +52,16 @@ const Profile = () => {
   return (
     isAuthenticated && (
       <div>
-        <img src={user.picture} alt={user.name} />
-        <h2>Username: {user.name}</h2>
-        <p>E-mail: {user.email}</p>
+        <img src={user.picture} alt={user.name} /> {/* Calling data from auth0 directly */}
+        <h2>Name: {userProfile.first_name} {userProfile.last_name}</h2> {/* Calling data from database */}
+        <p>E-mail: {user.email}</p> {/* Calling data from auth0 directly */}
 
         {/* Display itineraries in a table */}
         <center>
-        <table class="itineraries-table">
+        <table className="itineraries-table">
           <thead>
             <tr>
-              <th colSpan="3">Itineraries for {user.name}</th>
+              <th colSpan="3">Itineraries for {userProfile.first_name}</th>
             </tr>
             <tr>
               <th>ID</th>
