@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { TravelForm } from './TravelForm';
 import { TravelFormModal } from './TravelFormModal';
 import { FlightHotelModal } from './FlightHotelModal';
+import '../../style/Form.css'
 
 export const Form = () => {
     const [submittedData, setSubmittedData] = useState([]);

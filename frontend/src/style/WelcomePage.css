@@ -1,5 +1,5 @@
 .splash-page {
-  background-image: url('https://sdxl-h-p-4.stablediffusionweb.com/file=/tmp/gradio/75c68c69a5aa52d719b7c1c29c6ff568f483e7d3/image.png'); /* Replace 'your-image-url.jpg' with the path to your image */
+  background-image: url('../../public/splash-v1.png'); 
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -54,6 +54,7 @@
   border-color: transparent transparent transparent #005085; /* Match the background color */
 }
   .splash-page {
+    margin-top: 74px;
     height: 100vh; /* Set the height of the splash page to 100% of the viewport height */
   }
   
@@ -61,19 +62,20 @@
   @media (max-width: 700px) {
     .splash-page {
       background-position: center center;
-      height: 95vh;
+      height: 70vh;
+      padding: 0vh;
     }
     .welcome-top {
-      margin-top: 30px;
+      margin-top: 2vh;
     }
     .welcome-bottom {
-      margin-top: 15vh;
+      margin-top: 8vh;
     }
     .welcome-text {
       font-size: 1.5rem;
     }
     .welcome-logo {
-      font-size: 5rem;
+      font-size: 4rem;
     }
     .welcome-text-2 {
       position: relative;

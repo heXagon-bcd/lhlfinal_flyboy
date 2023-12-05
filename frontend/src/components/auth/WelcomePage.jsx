@@ -4,7 +4,7 @@ import LoginButton from "./login";
 
 const WelcomePage = () => {
   return (
-    <div className="splash-page">
+    <div className="splash-page" >
       <div className="welcome-top">
         <h4 className="welcome-text">WELCOME TO</h4>
         <h1 className="welcome-logo">Flyboy</h1>
