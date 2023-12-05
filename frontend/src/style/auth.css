@@ -3,9 +3,9 @@
   background-color: #FF6C22; /* Change the background color */
   font-size: 24px;
   font-weight: bold;
-  border: 2px solid #ffffff; /* Set the border width and color */
+  border: 3px solid #ffffff; /* Set the border width and color */
   border-radius: 8px; /* Add rounded edges */
-  padding: 12px 30px; /* Add padding for better appearance */
+  padding: 11px 30px; /* Add padding for better appearance */
    /* color: #ffffff; Set text color */
   cursor: pointer; /* Change cursor style on hover */
   margin: 0px;

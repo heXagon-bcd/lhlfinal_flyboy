@@ -10,16 +10,16 @@ const NavigationBar = () => {
     <nav className="navBar">
       <div className="logo">Flyboy</div>
       <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/form">New Search</Link></li>
-        <li><Link to="/itinerary">My Profile</Link></li>
+        <li><Link to="/">HOME</Link></li>
+        <li><Link to="/form">NEW SEARCH</Link></li>
+        <li><Link to="/itinerary">MY PROFILE</Link></li>
         {isAuthenticated ? (
           <>
-            <li><Link to="/profile">Profile</Link></li>
-            <li><Link to="/logout" onClick={() => logout()}>Logout</Link></li>
+            <li><Link to="/profile">PROFILE</Link></li>
+            <li><Link to="/logout" onClick={() => logout()}>LOGOUT</Link></li>
           </>
         ) : (
-          <li><Link to="/login" onClick={() => loginWithRedirect()}>Login</Link></li>
+          <li><Link to="/login" onClick={() => loginWithRedirect()}>LOGIN</Link></li>
         )}
       </ul>
     </nav>

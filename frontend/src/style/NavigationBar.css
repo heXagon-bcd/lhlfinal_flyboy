@@ -18,10 +18,11 @@ nav {
 /* Unordered list styling (remove default list styles) */
 ul {
   list-style-type: none; /* Remove default list styles (bullets) */
-  margin-top: 15px; /* Remove default margin */
+  margin: 0px; /* Remove default margin */
   padding: 0; /* Remove default padding */
-  font-family: 'Poiret One', sans-serif;
-  font-size: 1.3rem;
+  /* font-family: 'Poiret One', sans-serif; */
+  font-family: 'Dhurjati', sans-serif;
+  font-size: 1.5rem;
 }
 
 /* List item styling (horizontal arrangement) */
@@ -42,8 +43,9 @@ a:hover {
   text-decoration: underline; /* Underline links on hover */
 }
 
-@media (max-width: 701px) {
+@media (max-width: 600px) {
   ul {
-    font-size: 1rem;
+    margin-top: 10px;
+    font-size: 0.85rem;
   }
 }
