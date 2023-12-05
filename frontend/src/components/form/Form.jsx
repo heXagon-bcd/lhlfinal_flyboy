@@ -3,6 +3,7 @@ import { TravelForm } from './TravelForm';
 import { TravelFormModal } from './TravelFormModal';
 import { FlightHotelModal } from './FlightHotelModal';
 import { Spinner } from '../spinner/spinner';
+import '../../style/Form.css'
 
 export const Form = () => {
     const [submittedData, setSubmittedData] = useState([]);
