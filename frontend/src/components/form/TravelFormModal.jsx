@@ -1,14 +1,12 @@
 export const TravelFormModal = ({ data }) => {
+
+  console.log("Travel form data", data)
     return (
         <div>
-            {data.map((item, index) => (
-                <div key={index}>
-                    <h1>{item.name}</h1>
-                    <img src={item.image} alt={item.name} />
-                    <p>Rating: {item.rating}</p>
-                    <p>Location: {item.location}</p>
-                </div>
-            ))}
+              <h2>{data.name}</h2>
+              <img src={data.image} alt={data.name} />
+              <p>Rating: {data.rating}</p>
+              <p>Location: {data.location}</p>
         </div>
     );
 };

@@ -11,18 +11,18 @@ const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID; // Ensure you have set u
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <Auth0Provider
-      domain = {domain} // Using env variable
-      clientId = {clientId} // Using env variable
-      authorizationParams={{
-        redirect_uri: window.location.origin,
-      }}
-    >
-      <App />
-    </Auth0Provider>
+  <Auth0Provider
+    domain={domain} // Using env variable
+    clientId={clientId} // Using env variable
+    authorizationParams={{
+      redirect_uri: window.location.origin,
+    }}
+  >
+    <App />
+  </Auth0Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();
