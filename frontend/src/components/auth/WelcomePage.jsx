@@ -1,7 +1,6 @@
 import React from "react";
 import "../../style/WelcomePage.css"; // Import the stylesheet for the SplashPage
 import LoginButton from "./login";
-import bgImage from './splash-v1.png';
 
 const WelcomePage = () => {
   return (
