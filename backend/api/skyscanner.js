@@ -1,5 +1,5 @@
 const axios = require("axios");
-const moment = require("moment");
+const moment = require("moment"); //date library to formate string dates easily
 
 // const startLocation = "toronto";
 
@@ -62,8 +62,8 @@ const getFlightData = async (
       params: {
         fromId: dataResponse,
         toId: dataEndResponse,
-        departDate: moment(startDate, "M/D/YYYY").format("YYYY-MM-DD"),
-        returnDate: moment(returnDate, "M/D/YYYY").format("YYYY-MM-DD"),
+        departDate: moment(startDate, "YYYY-MM-DD").format("YYYY-MM-DD"),
+        returnDate: moment(returnDate, "YYYY-MM-DD  ").format("YYYY-MM-DD"),
         pageNo: "1",
         adults: "1",
         children: "0,17",
@@ -75,7 +75,7 @@ const getFlightData = async (
       },
     };
 
-    console.log("date api call", optionsFlights);
+    // console.log("date api call", optionsFlights);
 
     //query response
     const flightResponseRequest = await axios.request(optionsFlights);
@@ -83,12 +83,12 @@ const getFlightData = async (
     const bestFlight = bestFlightArray.filter((flight) => {
       return flight.key === "BEST";
     });
-    console.log("best flight prices", bestFlight[0].travellerPrices);
+    // console.log("best flight prices", bestFlight[0].travellerPrices);
     const bestFlightDetails = bestFlight[0].travellerPrices.filter((price) => {
       return price.travellerType === "ADULT";
     });
     // console.log("bestFlightArray", bestFlightArray);
-    console.log("flightResponseREquest", flightResponseRequest);
+    // console.log("flightResponseREquest", flightResponseRequest);
     // console.log("bestflightdetials", bestFlightDetails);
 
     //returns price info from server
