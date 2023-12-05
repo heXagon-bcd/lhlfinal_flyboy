@@ -9,6 +9,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Form } from "./components/form/Form";
 import Itinerary from "./components/itinerary";
+import NavigationBar from "./components/navbar/NavigationBar";
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -16,6 +17,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <NavigationBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginButton />} />
