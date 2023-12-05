@@ -1,7 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { TravelForm } from './TravelForm';
 import { TravelFormModal } from './TravelFormModal';
 import { FlightHotelModal } from './FlightHotelModal';
+<<<<<<< HEAD
+=======
+import { Spinner } from '../spinner/spinner';
+>>>>>>> 07bd56543dc67646d58bf6781b5a407acbb1297d
 import '../../style/Form.css'
 
 export const Form = () => {
@@ -17,6 +21,7 @@ export const Form = () => {
     const EMPTY = "EMPTY";
     const SHOW = "SHOW";
 
+<<<<<<< HEAD
 
     return (
         <div>
@@ -28,6 +33,17 @@ export const Form = () => {
             {submittedData.length > 0 && (<div>
             <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Travel App</h1>
             <TravelForm onSubmit={handleFormSubmit} />
+=======
+    return (
+        <div>
+          { submittedData.length === 0 && (<div>
+            <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Travel App</h1>
+            <TravelForm onSubmit={handleFormSubmit} />
+          </div>)}
+
+            {submittedData.length > 0 && (<div>
+            <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Travel App</h1>
+>>>>>>> 07bd56543dc67646d58bf6781b5a407acbb1297d
             <h1> Flight & Hotel Prices</h1>
             {<FlightHotelModal data = {submittedData[0]}/>}
             <h1>Interests</h1>

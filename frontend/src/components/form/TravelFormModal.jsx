@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export const TravelFormModal = ({ data }) => {
     return (
         <div style={{display:"flex", flexWrap: "wrap"}}>
@@ -14,3 +15,17 @@ export const TravelFormModal = ({ data }) => {
         </div>
     );
 };
+=======
+export const TravelFormModal = ({ data }) => {
+
+  console.log("Travel form data", data)
+    return (
+        <div>
+              <h2>{data.name}</h2>
+              <img src={data.image} alt={data.name} />
+              <p>Rating: {data.rating}</p>
+              <p>Location: {data.location}</p>
+        </div>
+    );
+};
+>>>>>>> 07bd56543dc67646d58bf6781b5a407acbb1297d

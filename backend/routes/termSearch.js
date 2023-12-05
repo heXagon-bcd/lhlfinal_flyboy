@@ -18,7 +18,12 @@ router.post("/flight", async (request, response) => {
 
     console.log("startLocation", startLocation);
 
+<<<<<<< HEAD
     const result = await search(terms, endLocation, sDate, rDate);
+=======
+    const result = await search(terms, endLocation);
+    console.log("result", result);
+>>>>>>> 07bd56543dc67646d58bf6781b5a407acbb1297d
 
     const flightDataReturn = await getFlightData(
       startLocation,
