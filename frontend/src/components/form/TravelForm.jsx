@@ -1,9 +1,12 @@
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import axios from "axios";
-import "../../style/TravelForm.css";
+import { useFormik } from 'formik';
+import React, {useEffect, useState} from 'react';
+import * as Yup from 'yup';
+import axios from 'axios';
+import '../../style/TravelForm.css'
+import airplane from "../../flight-loader.svg";
 
 export const TravelForm = ({ onSubmit }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
       destination: "",
@@ -26,6 +29,7 @@ export const TravelForm = ({ onSubmit }) => {
       interest3: Yup.string().required("Interest 3 is required"),
     }),
     onSubmit: async (values) => {
+      setIsLoading(true);
       try {
         const res = await axios.post(
           "http://localhost:8080/api/flight",
@@ -37,14 +41,31 @@ export const TravelForm = ({ onSubmit }) => {
         // console.log("form submission values", values)
       } catch (error) {
         console.error("Error:", error);
+      } finally {
+        setIsLoading(false);
       }
     }, //use promise instead
   });
 
   return (
-    <form className="search-form" onSubmit={formik.handleSubmit}>
-      <div className="title">
-        <h4>Enter Your Trip Details</h4>
+    <div>
+    {isLoading ?(<img src={airplane} alt="Loading" />) :
+    (<form className="search-form" onSubmit={formik.handleSubmit}>
+    <div className="title">
+    <h4>Enter Your Trip Details</h4>
+      <div>
+        <label htmlFor="destination">Destination:</label>
+        <input
+          type="text"
+          id="destination"
+          name="destination"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.destination}
+        />
+        {formik.touched.destination && formik.errors.destination && (
+          <div>{formik.errors.destination}</div>
+        )}
       </div>
       <div className="upper-form">
         <div className="left-column">
@@ -178,6 +199,8 @@ export const TravelForm = ({ onSubmit }) => {
           SUBMIT
         </button>
       </div>
-    </form>
+      <button type="submit">Submit</button>
+    </form>)}
+</div>
   );
 };
