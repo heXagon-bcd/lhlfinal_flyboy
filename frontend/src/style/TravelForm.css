@@ -1,3 +1,8 @@
+.outer-form-container {
+  margin-top: 20vh;
+  margin-left: 20vh;
+}
+
 .search-form {
   display: flex;
   flex-direction: column;
@@ -20,6 +25,8 @@
   color:#ffffff;
   padding: 15px;
 }
+
+
 
 /* Style the placeholder text */
 .search-form label, input::placeholder {

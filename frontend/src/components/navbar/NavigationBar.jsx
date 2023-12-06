@@ -13,7 +13,7 @@ const NavigationBar = () => {
         <li><Link to="/form">NEW SEARCH</Link></li>
         {isAuthenticated ? (
           <>
-            <li><Link to="/profile">PROFILE</Link></li>
+            <li><Link to="/profile">MY TRIPS</Link></li>
             <li><Link to="/logout" onClick={() => logout()}>LOGOUT</Link></li>
           </>
         ) : (

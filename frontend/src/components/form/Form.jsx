@@ -19,11 +19,10 @@ export const Form = () => {
     const SHOW = "SHOW";
 
     return (
-        <div>
-          { submittedData.length === 0 && (<div>
-            <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Travel App</h1>
+        <div className="main-form-container">
+          { submittedData.length === 0 && (
             <TravelForm onSubmit={handleFormSubmit} />
-          </div>)}
+          )}
 
             {submittedData.length > 0 && (<div>
             <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Travel App</h1>

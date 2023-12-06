@@ -48,7 +48,7 @@ export const TravelForm = ({ onSubmit }) => {
   });
 
   return (
-<div>
+<div className="outer-form-container">
       {isLoading ? (
         <img src={airplane} alt="Loading" />
       ) : (
