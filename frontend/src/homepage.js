@@ -14,7 +14,6 @@ export default function HomePage() {
       {isAuthenticated ? (
         <>
           <Profile />
-          <LogoutButton />
         </>
       ) : (
         <>

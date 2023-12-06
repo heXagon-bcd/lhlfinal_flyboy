@@ -1,0 +1,41 @@
+.itinerary-box {
+  border: 1px solid #ccc;
+  padding: 0px;
+  margin: -1px;
+  width: 450px;
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  /* Add more styles as needed */
+  font-size: 0.8rem;
+}
+
+.itinerary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.itinerary-box-1 {
+  margin: 0px;
+}
+
+.itinerary-box img {
+  height: 120px;
+  width: 120px;
+}
+
+.itinerary-box-2 {
+  margin-left: 10px;
+}
+
+.itinerary-box-2 p.trip-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.itinerary-box-3 {
+  display: flex;
+  flex-direction: row;
+}

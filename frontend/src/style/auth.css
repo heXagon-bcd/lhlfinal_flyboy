@@ -5,18 +5,28 @@
   font-weight: bold;
   border: 3px solid #ffffff; /* Set the border width and color */
   border-radius: 8px; /* Add rounded edges */
-  padding: 11px 30px; /* Add padding for better appearance */
+  padding: 10px; /* Add padding for better appearance */
    /* color: #ffffff; Set text color */
   cursor: pointer; /* Change cursor style on hover */
   margin: 0px;
+  width: 80%;
 }
 
-.itineraries-table {
-  border: 2px solid rgb(91, 91, 91);
-  border-collapse: collapse; /* Optional: This ensures that table borders are collapsed into a single border instead of having double borders between cells */
+
+@media (max-width: 700px) {
+  .Login-button {
+    font-size: 20px;
+    width: 150px;
+    padding: 8px;
+    margin: 0px;
+  }
 }
 
-.itineraries-table th, .itineraries-table td {
-  border: 2px solid rgb(91, 91, 91);
-  padding: 8px; /* Optional: Add padding for better visual appearance */
+@media (min-width: 701px) {
+  .Login-button {
+    font-size: 24px;
+    width: 200px;
+    padding: 10px;
+    margin: 0px;
+  }
 }
