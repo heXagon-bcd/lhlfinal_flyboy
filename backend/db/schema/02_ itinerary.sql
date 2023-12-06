@@ -14,5 +14,5 @@ CREATE TABLE itinerary (
     interest_name VARCHAR(255),
     interest_location VARCHAR(255),
     interest_image VARCHAR(255),
-    interest_rating VARCHAR(255),
+    interest_rating VARCHAR(255)
 );
