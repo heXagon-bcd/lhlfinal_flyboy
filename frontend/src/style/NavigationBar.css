@@ -17,6 +17,7 @@ nav {
   font-family: 'Lobster Two', sans-serif;
   font-weight: 700; /* Bold */
   font-style: italic; /* Italic */
+  text-decoration: none;
   margin-left: 15px;
   margin-top: 0px;
 }
@@ -45,8 +46,12 @@ a {
 }
 
 /* Hover effect on links */
-a:hover {
+nav li a:hover {
   text-decoration: underline; /* Underline links on hover */
+}
+
+nav .logo:hover {
+  text-decoration: none;
 }
 
 @media (max-width: 600px) {
