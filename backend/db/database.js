@@ -15,8 +15,12 @@ const getUser = () => {
 };
 
 const findItinerary = (userid) => {
+  const queryString = "";
+};
+
+const saveItinerary = (json) => {
   const queryString = ''
-}
+};
 
 getUser();
 module.exports = { getUser };
