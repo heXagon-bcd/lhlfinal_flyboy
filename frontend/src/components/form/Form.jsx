@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { TravelForm } from './TravelForm';
 import { TravelFormModal } from './TravelFormModal';
 import { FlightHotelModal } from './FlightHotelModal';
+import { ReactButton } from '../button/button';
 import { Spinner } from '../spinner/spinner';
 import '../../style/Form.css';
 
@@ -46,6 +47,7 @@ export const Form = () => {
         <div>
           <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Travel App</h1>
           <h1> Flight & Hotel Prices</h1>
+          <ReactButton/>
           {<FlightHotelModal data={submittedData[0]} />}
           <h1>Interests</h1>
           {groupedByDate &&
