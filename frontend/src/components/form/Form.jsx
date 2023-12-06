@@ -35,7 +35,7 @@ export const Form = () => {
   return (
     <div>
       {submittedData.length === 0 && (
-        <div>
+        <div className="travel-form-container">
           <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Travel App</h1>
           <TravelForm onSubmit={handleFormSubmit} />
         </div>
