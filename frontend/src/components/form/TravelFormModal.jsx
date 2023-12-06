@@ -1,7 +1,7 @@
 export const TravelFormModal = ({ data }) => {
   console.log(data)
   return (
-    <div style={{display:"flex"}}>
+    <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
       <h2>{data.name}</h2>
       <img src={data.image} alt={data.name} />
       <p>Rating: {data.rating}</p>
