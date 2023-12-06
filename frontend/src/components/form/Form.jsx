@@ -14,6 +14,7 @@ export const Form = () => {
   };
 
   console.log("response data", JSON.stringify(submittedData));//return
+  console.log("non json response data", submittedData);//return
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
 
