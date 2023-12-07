@@ -4,10 +4,13 @@ import { TravelFormModal } from './TravelFormModal';
 import { FlightHotelModal } from './FlightHotelModal';
 import { ReactButton } from '../button/button';
 import { Spinner } from '../spinner/spinner';
+import utility from '../../api/utility'
+import { useNavigate } from 'react-router-dom';
 import '../../style/Form.css';
 
 export const Form = () => {
   const [submittedData, setSubmittedData] = useState([]);
+  const navigate = useNavigate();
 
   const handleFormSubmit = (data) => {
     setSubmittedData((prevData) => [...prevData, data]);
@@ -16,8 +19,22 @@ export const Form = () => {
 
   console.log("response data", JSON.stringify(submittedData));//return
   console.log("non json response data", submittedData);//return
-  const EMPTY = "EMPTY";
-  const SHOW = "SHOW";
+//save button
+  const handleSubmit = () => {
+    console.log("button submission", submittedData)
+    utility(submittedData)
+    .then(() => {
+      navigate('/profile'); // Redirect on success
+    })
+      .catch(error => {
+        // handle error
+        console.error('Submission error:', error);
+      });
+  };
+
+  const newSubmitSearch = () => {
+    setSubmittedData([]); // Redirect on success
+  };
 
   const api = submittedData?.[0]?.[0]?.yelpApi;
 
@@ -45,23 +62,19 @@ export const Form = () => {
 
       {submittedData.length > 0 && (
         <div>
-          <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop:"80px" }}> Flight & Hotel Prices</h1>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
-          <ReactButton/>
+          <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Travel App</h1>
+          <h1> Flight & Hotel Prices</h1>
+          <ReactButton name="SAVE" onClick={handleSubmit}/><ReactButton name="NEW SEARCH" onClick={newSubmitSearch}/>
           {<FlightHotelModal data={submittedData[0]} />}
-          </div>
-          <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>Interests</h1>
+          <h1>Interests</h1>
           {groupedByDate &&
             Object.entries(groupedByDate).map(([date, dataGroup]) => (
-              <>
-                <h3 style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>{date}</h3>
-                <div key={date} style={{display:"flex"}}>
-                  
-                  {dataGroup.map((data) => (
-                    <TravelFormModal key={data.id} data={data} />
-                  ))}
-                </div>
-              </>
+              <div key={date}>
+                <h2>{date}</h2>
+                {dataGroup.map((data) => (
+                  <TravelFormModal key={data.id} data={data} />
+                ))}
+              </div>
             ))}
         </div>
       )}
