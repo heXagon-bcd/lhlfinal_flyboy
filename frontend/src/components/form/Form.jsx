@@ -52,10 +52,10 @@ export const Form = () => {
   }
 
   return (
-    <div>
+    <div className='logged-in-bg-img'>
+      <div className="outer-form-container">
       {submittedData.length === 0 && (
         <div className="travel-form-container">
-          <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Travel App</h1>
           <TravelForm onSubmit={handleFormSubmit} />
         </div>
       )}
@@ -78,6 +78,7 @@ export const Form = () => {
             ))}
         </div>
       )}
+    </div>
     </div>
   );
 };
