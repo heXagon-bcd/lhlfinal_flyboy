@@ -1,6 +1,7 @@
-const yelp = require('yelp-fusion');
+const yelp = require("yelp-fusion");
 //const apiKey = 'SDzrM8FUGWFMAO8pHOpg2TWbF58Raa8e_hC7RDxjOAjue8DNYrPih-R_qsEW7hpuYGP-sda9ZPrjypl_6yHgmq_0L1QrbdfQVzhAeon_8u2gEGITOEXcuZMrXfBbZXYx';
-const apiKey = 'nK_Aw-5Ayhc38yd2yWZ-SjqUqo6td-DAIMA99fpws659O-lofeKfs8kyUDgaZgIu0ofIhC48uQCk9SPF6xslbWRCz3W2h-Bosyrx0HdbXEMDEwaxY0Eduh8xgdZxZXYx'
+const apiKey =
+  "0LoZlQakg1FctuPsvlRYvtwz4PFCZFPDmaBhjvOJHip_yrDM-2MIf8gHiaIzEE69pvIq2PQpmhAGcFvkPkkDJOKpM1ONFpX9vDo3WcV9_YtPUZ0ObJqjRWD7EtpxZXYx";
 
 const client = yelp.client(apiKey);
 
@@ -19,12 +20,12 @@ async function search(terms, location, sDate, rDate) {
       for (const term of terms) {
         const searchRequest = {
           term: term,
-          location: location
+          location: location,
         };
 
         const response = await client.search(searchRequest);
         const result = response.jsonBody.businesses[i];
-        console.log("test",result + i)
+        console.log("test", result + i);
 
         if (!result) {
           console.warn(`No result found for index ${i} on date ${currentDate}`);
@@ -37,15 +38,15 @@ async function search(terms, location, sDate, rDate) {
           image: result.image_url,
           rating: result.rating,
           location: result.location.address1,
-          price : result.price,
-          date: currentDate.toISOString().split('T')[0]
+          price: result.price,
+          date: currentDate.toISOString().split("T")[0],
         });
       }
     }
 
     return resultsArray;
   } catch (error) {
-    console.error('Error in Yelp API request:', error);
+    console.error("Error in Yelp API request:", error);
     throw error;
   }
 }
