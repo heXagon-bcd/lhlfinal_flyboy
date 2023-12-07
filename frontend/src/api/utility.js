@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default utility = (data) => {
+const utility = (data) => {
   return axios
-    .put("http://localhost:8080/api/database", data)
-    .then((response) => response.data)
+    .post("http://localhost:8080/api/flight/database", data)
+    .then((response) => {
+      console.log("utility response", response.data);
+      return response.data;
+    })
     .catch((e) => console.error("error pushing data"));
 };
+
+export default utility;
