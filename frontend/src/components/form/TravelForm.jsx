@@ -58,89 +58,91 @@ export const TravelForm = ({ onSubmit }) => {
         </div>
       ) : (
         <form className="search-form" onSubmit={formik.handleSubmit}>
-          <div className="title">
-            <h4>Enter Your Trip Details</h4>
-          </div>
-
-          <div>
-            <input
-              type="text"
-              id="tripName"
-              name="tripName"
-              placeholder="Enter Trip Name"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.tripName}
-            />
-            {formik.touched.tripName && formik.errors.tripName && (
-              <div>{formik.errors.tripName}</div>
-            )}
-          </div>
-
-          <div>
-            <input
-              type="text"
-              id="destination"
-              name="destination"
-              placeholder="Destination"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.destination}
-            />
-            {formik.touched.destination && formik.errors.destination && (
-              <div>{formik.errors.destination}</div>
-            )}
-          </div>
-
           <div className="upper-form">
-            <div className="left-column">
-              <div className="input-container">
-                <input
-                  type="date"
-                  id="departureDate"
-                  name="departureDate"
-                  className="date"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.departureDate}
-                />
-                {formik.touched.departureDate &&
-                  formik.errors.departureDate && (
-                    <div>{formik.errors.departureDate}</div>
-                  )}
-              </div>
+            <div className="title">
+              <h4>Enter Your Trip Details</h4>
             </div>
-
-            <div className="right-column">
               <div className="input-container">
                 <input
                   type="text"
-                  id="locationFromDeparture"
-                  name="locationFromDeparture"
-                  placeholder="Enter Departure Location"
+                  id="tripName"
+                  name="tripName"
+                  placeholder="Enter Trip Name"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  value={formik.values.locationFromDeparture}
+                  value={formik.values.tripName}
+                  className={`formik ${formik.touched.tripName && formik.errors.tripName ? 'formik-error' : ''}`}
                 />
-                {formik.touched.locationFromDeparture &&
-                  formik.errors.locationFromDeparture && (
-                    <div>{formik.errors.locationFromDeparture}</div>
+                {formik.touched.tripName && formik.errors.tripName && (
+                  <div className="formik-error">{formik.errors.tripName}</div>
+                )}
+              </div>
+            <div className="columns">
+              <div className="left-column">
+                <div className="input-container">
+                  <input
+                    type="text"
+                    id="destination"
+                    name="destination"
+                    placeholder="Destination City"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.destination}
+                    className={`formik ${formik.touched.destination && formik.errors.destination ? 'formik-error' : ''}`}
+                    />
+                    {formik.touched.destination && formik.errors.destination && (
+                      <div className="formik-error">{formik.errors.destination}</div>
                   )}
+                </div>
+
+                <div className="input-container">
+                  <input
+                    type="date"
+                    id="departureDate"
+                    name="departureDate"
+                    className="date"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.departureDate}
+                  />
+                  {formik.touched.departureDate &&
+                    formik.errors.departureDate && (
+                      <div>{formik.errors.departureDate}</div>
+                    )}
+                </div>
               </div>
 
-              <div className="input-container">
-                <input
-                  type="date"
-                  id="returnDate"
-                  name="returnDate"
-                  className="date"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.returnDate}
-                />
-                {formik.touched.returnDate && formik.errors.returnDate && (
-                  <div>{formik.errors.returnDate}</div>
-                )}
+              <div className="right-column">
+                <div className="input-container">
+                  <input
+                    type="text"
+                    id="locationFromDeparture"
+                    name="locationFromDeparture"
+                    placeholder="City of Departure"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.locationFromDeparture}
+                  />
+                  {formik.touched.locationFromDeparture &&
+                    formik.errors.locationFromDeparture && (
+                      <div>{formik.errors.locationFromDeparture}</div>
+                    )}
+                </div>
+
+                <div className="input-container">
+                  <input
+                    type="date"
+                    id="returnDate"
+                    name="returnDate"
+                    className="date"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.returnDate}
+                  />
+                  {formik.touched.returnDate && formik.errors.returnDate && (
+                    <div>{formik.errors.returnDate}</div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
