@@ -34,7 +34,6 @@ async function search(terms, location, sDate, rDate) {
           id: result.id,
           name: result.name,
           image: result.image_url,
-          categories: result.categories,
           rating: result.rating,
           location: result.location.address1,
           price : result.price,
