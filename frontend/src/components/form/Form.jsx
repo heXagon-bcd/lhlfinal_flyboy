@@ -5,6 +5,7 @@ import { FlightHotelModal } from './FlightHotelModal';
 import { ReactButton } from '../button/button';
 import { Spinner } from '../spinner/spinner';
 import '../../style/Form.css';
+import '../../style/button.css'
 
 export const Form = () => {
   const [submittedData, setSubmittedData] = useState([]);
@@ -47,22 +48,17 @@ export const Form = () => {
         <div>
           <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Travel App</h1>
           <h1> Flight & Hotel Prices</h1>
-          <ReactButton name="SAVE"/>
-
+          <div><ReactButton name="SAVE"/> <ReactButton name="NEW SEARCH"/></div>
           {<FlightHotelModal data={submittedData[0]} />}
-          </div>
-          <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>Interests</h1>
+          <h1>Interests</h1>
           {groupedByDate &&
             Object.entries(groupedByDate).map(([date, dataGroup]) => (
-              <>
-                <h3 style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>{date}</h3>
-                <div key={date} style={{display:"flex"}}>
-                  
-                  {dataGroup.map((data) => (
-                    <TravelFormModal key={data.id} data={data} />
-                  ))}
-                </div>
-              </>
+              <div key={date}>
+                <h2>{date}</h2>
+                {dataGroup.map((data) => (
+                  <TravelFormModal key={data.id} data={data} />
+                ))}
+              </div>
             ))}
         </div>
       )}
