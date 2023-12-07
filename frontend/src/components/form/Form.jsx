@@ -50,13 +50,13 @@ export const Form = () => {
           {groupedByDate &&
             Object.entries(groupedByDate).map(([date, dataGroup]) => (
               <>
-              <h3>{date}</h3>
-              <div key={date} style={{display:"flex"}}>
-                
-                {dataGroup.map((data) => (
-                  <TravelFormModal key={data.id} data={data} />
-                ))}
-              </div>
+                <h3>{date}</h3>
+                <div key={date} style={{display:"flex"}}>
+                  
+                  {dataGroup.map((data) => (
+                    <TravelFormModal key={data.id} data={data} />
+                  ))}
+                </div>
               </>
             ))}
         </div>

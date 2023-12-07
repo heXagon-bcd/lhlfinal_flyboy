@@ -12,7 +12,6 @@ export const TravelFormModal = ({ data }) => {
           <p>Rating: {data.rating}</p>
           <p>Pricing: {data.price}</p>
           <p>Location: {data.location}</p>
-          <p>Open at: {data.open_at}</p>
         </div>
       </div>
     </div>
