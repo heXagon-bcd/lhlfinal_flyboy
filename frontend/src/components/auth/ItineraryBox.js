@@ -7,7 +7,7 @@ const ItineraryBox = ({ itinerary }) => {
   return (
     <div className="itinerary-box">
       <div className="itinerary-box-1">
-        <img src={itinerary.picture} alt={itinerary.trip_name} />
+        <img src={itinerary.interest_image} alt={itinerary.trip_name} />
       </div>
       <div className="itinerary-box-2">
         <p className="trip-name">{itinerary.trip_name}</p>

@@ -33,7 +33,7 @@ const saveItinerary = async (jsonData) => {
 
   // hard code user id
   const tripName = "Toronto Clubbing 2023";
-  const usersId = 3;
+  const usersId = 1;
 
   // Iterate over the yelpApi array and insert each interest into the database
   for (const interest of yelpApiData.yelpApi) {

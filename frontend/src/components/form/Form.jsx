@@ -61,8 +61,8 @@ export const Form = () => {
       )}
 
       {submittedData.length > 0 && (
-        <div>
-          <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop:"100px" }}> Flight & Hotel Prices</h1>
+        <div className="api-modal-container">
+          <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop:"300px" }}> Flight & Hotel Prices</h1>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
           <ReactButton name="SAVE" onClick={handleSubmit}/><ReactButton name="NEW SEARCH" onClick={newSubmitSearch}/>
           </div>
