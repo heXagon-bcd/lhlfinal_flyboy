@@ -10,6 +10,8 @@
 .search-form {
   width: 70%;
   padding: 20px;
+  padding-left: 40px;
+  padding-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   display: flex;
@@ -19,27 +21,33 @@
 
 .input-container {
   width: 100%;
-  border: 1px solid #ff7b7b;
+  /* border: 1px solid #ff7b7b; */
   position: relative;
+  box-sizing: border-box; /* Include padding and border in the total width */
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 15px;
 }
 
 .upper-form .title {
   text-align: center;
-  margin-bottom: 20x;
+  margin-bottom: 20px; /* Corrected the typo in margin */
 }
 
 .search-form .input {
   margin: 5px;
-  width: 100%;
-  padding: 10px;
+  width: calc(100% - 20px); /* Adjust width to account for margin and padding */
+  padding: 0px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  box-sizing: border-box; /* Include padding and border in the total width */
 }
 
-.search-form .date {
+.search-form .input-container .formik {
   /* Add date input styling */
-  color: #828282;;
+  color: #828282;
+  font-size: 0.8rem;
 }
 
 .loading-screen-container {
@@ -73,39 +81,74 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.search-form .left-column,
+.search-form .right-column {
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-form input {
-  margin: 5px;
-  width: 100%;
+  /* margin: 5px; */
+  width: calc(100% - 20px); /* Adjust width to account for margin and padding */
   padding: 10px;
-  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  box-sizing: border-box; /* Include padding and border in the total width */
 }
 
-.lower-form input {
-  width: 100%;
+.form-submit-button {
+  background-color: #4CAF50; /* Green background color */
+  color: #ffffff; /* White text color */
+  padding: 12px 20px; /* Padding for the button */
+  font-size: 1.2rem; /* Font size */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Add a slight border radius */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color */
 }
 
 /* Add additional styles as needed */
 
 /* Style for form fields */
 .formik {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  /* width: 100%; */
+  margin-bottom: 11px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Style for input placeholder */
+.formik::placeholder {
+  color: #828282; /* Adjust the color as needed */
+  font-size: 0.8rem; /* Adjust the font size as needed */
+  padding: 0px;
 }
 
 /* Style for error messages */
 .formik-error {
   color: red;
   font-size: 0.6rem;
-  margin-top: 0px;
-  top: -100;
-  left:0;
+  margin: 0px;
+  padding: 0.6px;
 }
 
 /* Add additional styles as needed */
+
+@media (max-width: 700px) {
+  .search-form .columns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-form .left-column,
+  .search-form .right-column {
+    width: 100%;
+  }
+}
