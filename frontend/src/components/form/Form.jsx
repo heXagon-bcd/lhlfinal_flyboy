@@ -5,7 +5,6 @@ import { FlightHotelModal } from './FlightHotelModal';
 import { ReactButton } from '../button/button';
 import { Spinner } from '../spinner/spinner';
 import '../../style/Form.css';
-import '../../style/button.css'
 
 export const Form = () => {
   const [submittedData, setSubmittedData] = useState([]);
@@ -48,7 +47,7 @@ export const Form = () => {
         <div>
           <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Travel App</h1>
           <h1> Flight & Hotel Prices</h1>
-          <div><ReactButton name="SAVE"/> <ReactButton name="NEW SEARCH"/></div>
+          <ReactButton name="SAVE"/>
           {<FlightHotelModal data={submittedData[0]} />}
           <h1>Interests</h1>
           {groupedByDate &&
