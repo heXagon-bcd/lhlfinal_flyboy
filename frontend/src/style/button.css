@@ -1,0 +1,14 @@
+.button {
+  color: #ffffff;
+  background-color: #ff6c22; /* Change the background color */
+  font-size: 24px;
+  font-weight: bold;
+  border: 3px solid #ffffff; /* Set the border width and color */
+  border-radius: 8px; /* Add rounded edges */
+  padding: 10px; /* Add padding for better appearance */
+  /* color: #ffffff; Set text color */
+  cursor: pointer; /* Change cursor style on hover */
+  font-family: "Dhurjati", sans-serif;
+  margin: 0px;
+  width: 20ex;
+}

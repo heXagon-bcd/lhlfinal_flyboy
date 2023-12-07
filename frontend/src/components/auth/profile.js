@@ -52,8 +52,14 @@ const Profile = () => {
 
   const sortedItineraries = [...itineraries].sort((a, b) => b.id - a.id);
 
+  const handleItineraryClick = (itinerary) => {
+    // Placeholder action, replace this with your navigation logic
+    alert(`Clicked on itinerary: ${itinerary.trip_name}`);
+  };
+
   return (
     isAuthenticated && (
+      <div className="profile-page-container">
       <div className="profile-container">
         <div className="user-info-container">
           <h4>Displaying {userProfile.first_name}'s Trips</h4>
@@ -73,10 +79,17 @@ const Profile = () => {
         </div>
         {/* Display itineraries using ItineraryBox component */}
         <div className="itineraries-container">
-          {sortedItineraries.map((itinerary) => (
-            <ItineraryBox key={itinerary.id} itinerary={itinerary} />
+            {sortedItineraries.map((itinerary) => (
+              <div
+                key={itinerary.id}
+                className="clickable-itinerary-box"
+                onClick={() => handleItineraryClick(itinerary)}
+              >
+                <ItineraryBox itinerary={itinerary} />
+              </div>
           ))}
         </div>
+      </div>
       </div>
     )
   );
