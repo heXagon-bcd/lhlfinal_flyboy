@@ -72,11 +72,11 @@ export const Form = () => {
             </div>
 
             <div className="interests-container"> {/* New container for Interests */}
-              <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Interests</h1>
+              <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Your Trip Schedule: </h1>
               {groupedByDate &&
                 Object.entries(groupedByDate).map(([date, dataGroup]) => (
                   <div key={date}> {/* Added a key to the wrapping div */}
-                    <h3 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>{date}</h3>
+                    <h3 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Your Schedule For This Day: {date}</h3>
                     <div style={{ display: "flex" }}>
                       {dataGroup.map((data) => (
                         <TravelFormModal key={data.id} data={data} />
