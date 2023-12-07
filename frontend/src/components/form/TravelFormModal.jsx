@@ -1,12 +1,20 @@
+import '../../style/TravelFormModal.css'
+
 export const TravelFormModal = ({ data }) => {
-  console.log(data)
   return (
-    <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
-      <h2>{data.name}</h2>
-      <img src={data.image} alt={data.name} />
-      <p>Rating: {data.rating}</p>
-      <p>Pricing: {data.price}</p>
-      <p>Location: {data.location}</p>
+    <div className="travel-form-modal-container">
+      <div className="travel-form-modal-item">
+        <h2>{data.name}</h2>
+        <div>
+          <img src={data.image} alt={data.name} />
+        </div>
+        <div>
+          <p>Rating: {data.rating}</p>
+          <p>Pricing: {data.price}</p>
+          <p>Location: {data.location}</p>
+          <p>Open at: {data.open_at}</p>
+        </div>
+      </div>
     </div>
   );
 };
