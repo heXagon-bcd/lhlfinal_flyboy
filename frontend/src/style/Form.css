@@ -33,6 +33,10 @@
   padding-bottom: 30vw; 
 }
 
+.api-modal-container {
+  margin-top: 150ex;
+}
+
 
 @media (max-height: 500px) and (max-width: 600px) {
   .travel-form-container {
