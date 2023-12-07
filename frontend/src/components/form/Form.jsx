@@ -54,34 +54,40 @@ export const Form = () => {
   return (
     <div className='logged-in-bg-img'>
       <div className="outer-form-container">
-      {submittedData.length === 0 && (
-        <div className="travel-form-container">
-          <TravelForm onSubmit={handleFormSubmit} />
-        </div>
-      )}
-
-      {submittedData.length > 0 && (
-        <div className="api-modal-container">
-          <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop:"300px" }}> Flight & Hotel Prices</h1>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
-          <ReactButton name="SAVE" onClick={handleSubmit}/><ReactButton name="NEW SEARCH" onClick={newSubmitSearch}/>
+        {submittedData.length === 0 && (
+          <div className="travel-form-container">
+            <TravelForm onSubmit={handleFormSubmit} />
           </div>
-          {<FlightHotelModal data={submittedData[0]} />}
-          <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>Interests</h1>
-          {groupedByDate &&
-            Object.entries(groupedByDate).map(([date, dataGroup]) => (
-              <div>
-                <h3 style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>{date}</h3>
-                <div style={{display:"flex"}}>
-                {dataGroup.map((data) => (
-                  <TravelFormModal key={data.id} data={data} />
-                ))}
-                </div>
+        )}
+
+        {submittedData.length > 0 && (
+          <div className="api-modal-container">
+            <div className="flight-hotel-container"> {/* New container for Flight & Hotel Prices */}
+              <h1> Flight & Hotel Prices</h1>
+              <div className="api-modal-buttons">
+                <div><ReactButton name="SAVE" onClick={handleSubmit} /></div>
+                <div><ReactButton name="NEW SEARCH" onClick={newSubmitSearch} /></div>
               </div>
-            ))}
-        </div>
-      )}
-    </div>
+              {<FlightHotelModal data={submittedData[0]} />}
+            </div>
+
+            <div className="interests-container"> {/* New container for Interests */}
+              <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Interests</h1>
+              {groupedByDate &&
+                Object.entries(groupedByDate).map(([date, dataGroup]) => (
+                  <div key={date}> {/* Added a key to the wrapping div */}
+                    <h3 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>{date}</h3>
+                    <div style={{ display: "flex" }}>
+                      {dataGroup.map((data) => (
+                        <TravelFormModal key={data.id} data={data} />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
