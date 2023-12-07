@@ -47,7 +47,7 @@ export const Form = () => {
         <div>
           <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Travel App</h1>
           <h1> Flight & Hotel Prices</h1>
-          <ReactButton/>
+          <ReactButton name="SAVE"/>
           {<FlightHotelModal data={submittedData[0]} />}
           <h1>Interests</h1>
           {groupedByDate &&
