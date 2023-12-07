@@ -1,5 +1,6 @@
 const yelp = require('yelp-fusion');
-const apiKey = 'SDzrM8FUGWFMAO8pHOpg2TWbF58Raa8e_hC7RDxjOAjue8DNYrPih-R_qsEW7hpuYGP-sda9ZPrjypl_6yHgmq_0L1QrbdfQVzhAeon_8u2gEGITOEXcuZMrXfBbZXYx';
+//const apiKey = 'SDzrM8FUGWFMAO8pHOpg2TWbF58Raa8e_hC7RDxjOAjue8DNYrPih-R_qsEW7hpuYGP-sda9ZPrjypl_6yHgmq_0L1QrbdfQVzhAeon_8u2gEGITOEXcuZMrXfBbZXYx';
+const apiKey = 'nK_Aw-5Ayhc38yd2yWZ-SjqUqo6td-DAIMA99fpws659O-lofeKfs8kyUDgaZgIu0ofIhC48uQCk9SPF6xslbWRCz3W2h-Bosyrx0HdbXEMDEwaxY0Eduh8xgdZxZXYx'
 
 const client = yelp.client(apiKey);
 
