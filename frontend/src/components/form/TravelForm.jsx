@@ -43,7 +43,8 @@ export const TravelForm = ({ onSubmit }) => {
         <form className="search-form" onSubmit={formik.handleSubmit}>
           <div className="upper-form">
             <div className="title">
-              <h4>Enter Your Trip Details</h4>
+              <h4>START A NEW TRIP</h4>
+              <p>Enter your trip details below:</p>
             </div>
             <InputField
               id="tripName"
