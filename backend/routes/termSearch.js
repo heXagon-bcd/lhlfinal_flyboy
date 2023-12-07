@@ -3,6 +3,7 @@ const router = express.Router();
 const { search } = require("./helper/search");
 const { getFlightData } = require("../api/skyscanner");
 const { getHotelData } = require("../api/hotelscanner");
+const database = require("../db/database");
 
 router.post("/flight", async (request, response) => {
   try {
@@ -35,20 +36,33 @@ router.post("/flight", async (request, response) => {
       rDate
     );
 
+    const returnData = [
+      { yelpApi: result },
+      { bookingsAPI: flightDataReturn },
+      { hotelAPI: hotelDataReturn },
+    ];
+
     console.log("response result termsearch", [
       { yelpApi: result },
       { bookingsAPI: flightDataReturn },
       { hotelAPI: hotelDataReturn },
     ]);
-    response.json([
-      { yelpApi: result },
-      { bookingsAPI: flightDataReturn },
-      { hotelAPI: hotelDataReturn },
-    ]); //sends object back to client
+    console.log("yelpAPI", result);
+    response.json(returnData); //sends object back to client
   } catch (error) {
     console.error("Error in /api/flights route:", error);
     response.status(500).json({ error: "Internal Server Error" });
   }
 });
 
+router.post("/flight/database", async (request, response) => {
+  try {
+    console.log("db req", request.body);
+    await database.saveItinerary(request.body);
+    response.json({ message: "Itinerary saved successfully" });
+  } catch (error) {
+    console.error("Error in /api/flights route:", error);
+    response.status(500).json({ error: "Internal Server Error" });
+  }
+});
 module.exports = router;
