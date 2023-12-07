@@ -45,9 +45,10 @@ export const Form = () => {
 
       {submittedData.length > 0 && (
         <div>
-          <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop:"80px" }}> Flight & Hotel Prices</h1>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
-          <ReactButton/>
+          <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Travel App</h1>
+          <h1> Flight & Hotel Prices</h1>
+          <ReactButton name="SAVE"/>
+
           {<FlightHotelModal data={submittedData[0]} />}
           </div>
           <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>Interests</h1>
