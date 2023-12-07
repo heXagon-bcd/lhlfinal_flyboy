@@ -7,7 +7,7 @@
 }
 
 .travel-form-modal-item {
-    border: 1px solid #ccc;  
+    border: 1px solid #000000;  
     border-radius: 8px;
     margin: 10px;     
     padding: 16px;          
@@ -18,9 +18,12 @@
     justify-content: space-between;
     text-align: center;
     flex: 1;
+    font-style: oblique;
+    font-weight: bold;
 }
 
 
 .travel-form-modal-item img {
     height: 200px;
 }
+
