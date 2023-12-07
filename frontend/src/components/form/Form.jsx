@@ -45,19 +45,23 @@ export const Form = () => {
 
       {submittedData.length > 0 && (
         <div>
-          <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>Travel App</h1>
-          <h1> Flight & Hotel Prices</h1>
+          <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop:"80px" }}> Flight & Hotel Prices</h1>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
           <ReactButton/>
           {<FlightHotelModal data={submittedData[0]} />}
-          <h1>Interests</h1>
+          </div>
+          <h1 style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>Interests</h1>
           {groupedByDate &&
             Object.entries(groupedByDate).map(([date, dataGroup]) => (
-              <div key={date}>
-                <h2>{date}</h2>
-                {dataGroup.map((data) => (
-                  <TravelFormModal key={data.id} data={data} />
-                ))}
-              </div>
+              <>
+                <h3 style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>{date}</h3>
+                <div key={date} style={{display:"flex"}}>
+                  
+                  {dataGroup.map((data) => (
+                    <TravelFormModal key={data.id} data={data} />
+                  ))}
+                </div>
+              </>
             ))}
         </div>
       )}
