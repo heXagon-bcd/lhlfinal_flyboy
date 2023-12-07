@@ -8,7 +8,7 @@ const NavigationBar = () => {
 
   return (
     <nav className="navBar">
-      <Link to="/"><div className="logo">Flyboy</div></Link>
+      <Link to="/"><div className="navLogo">Flyboy</div></Link>
       <ul>
         <li><Link to="/form">NEW SEARCH</Link></li>
         {isAuthenticated ? (

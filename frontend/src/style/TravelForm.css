@@ -8,19 +8,28 @@
 }
 
 .search-form {
-  max-width: 600px;
-  width: 100%;
+  width: 70%;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.title {
+.input-container {
+  width: 100%;
+  border: 1px solid #ff7b7b;
+  position: relative;
+}
+
+.upper-form .title {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 20x;
 }
 
-input {
+.search-form .input {
+  margin: 5px;
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
@@ -28,8 +37,9 @@ input {
   border-radius: 4px;
 }
 
-.date {
+.search-form .date {
   /* Add date input styling */
+  color: #828282;;
 }
 
 .loading-screen-container {
@@ -43,6 +53,39 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.search-form .upper-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-form .lower-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form .columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.search-form input {
+  margin: 5px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.lower-form input {
+  width: 100%;
 }
 
 /* Add additional styles as needed */
@@ -59,7 +102,10 @@ input {
 /* Style for error messages */
 .formik-error {
   color: red;
-  margin-top: 5px;
+  font-size: 0.6rem;
+  margin-top: 0px;
+  top: -100;
+  left:0;
 }
 
 /* Add additional styles as needed */
