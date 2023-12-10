@@ -23,12 +23,16 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const sub = req.body.user.sub;
-  console.log("User Sub:", sub);
+
+  const sub = req.body.user.sub; 
+  // sub is the token to authenticate the user with our db
+  // console.log("User Sub:", sub);
 
   // Make a funciton , that checks the DB for an exsiting matching sub
-  // if there is a match, return that match ie SELECT * FROM USERS where sub = '.....
-  // if there is not match insert that the users ttable with the sub
+  // if there is a match, 
+  // return that match ie SELECT * FROM USERS where sub = '.....
+  // if there is not match insert that the users table with the sub.
+  // also insert the user's table with the name and picture url.
 
   try {
     const user = await userQuery.getUser(sub);
@@ -36,6 +40,12 @@ router.post("/", async (req, res) => {
     if (user && user.length > 0 && sub === user[0].sub) {
       const userProfile = user[0];
       const itineraries = await userItineraryQuery.getItinerary(sub);
+
+      //checks for empty profile picture value in obj returned from db and assigns placeholder img 
+      if (!userProfile.profile_picture && userProfile.profile_picture.length < 1) {
+       userProfile.profile_picture = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Profile_avatar_placeholder_large.png/640px-Profile_avatar_placeholder_large.png"
+      }
+
       res.json({ itineraries, userProfile });
 
     } else {

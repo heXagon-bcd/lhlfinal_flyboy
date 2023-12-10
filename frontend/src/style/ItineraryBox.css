@@ -2,24 +2,30 @@
 
 .itinerary-box {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   /* border: 1px solid #ccc; Add a border for separation */
   /* border: 1px solid rgb(178, 200, 220); */
   border: 1px solid #a8a8a8;
   border-radius: 0px;
-  padding: 10px;
+  padding: 0px;
   margin-bottom: 10px;
   /* background-color: rgb(245, 244, 244); */
   /* background-color: aliceblue; */
   background-color: white;
 }
 
+.itinerary-box-1 {
+  margin: 0px;
+  padding: 0px;
+}
+
 .itinerary-box img {
-  height: 80px;
-  width: 80px;
+  height: 100px;
+  width: 100px;
   border-radius: 0%; /* Make the image round */
+  margin: 0px;
   margin-right: 20px;
-  margin-left: 5px;
 }
 
 .itinerary-box-2 {

@@ -4,13 +4,14 @@ import LogoutButton from "./components/auth/logout";
 import Profile from "./components/auth/profile";
 import logo from "./logo.svg";
 import "./App.css";
+import "./style/Homepage.css"
 import WelcomePage from "./components/auth/WelcomePage";
 
 export default function HomePage() {
   const { isAuthenticated } = useAuth0();
 
   return (
-    <header className="App-header">
+    <main>
       {isAuthenticated ? (
         <>
           <Profile />
@@ -20,6 +21,6 @@ export default function HomePage() {
           <WelcomePage />
         </>
       )}
-    </header>
+    </main>
   );
 }

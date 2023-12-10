@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 54px;
+  height: 2rem;
   /* background-color: #2B3499; Background color of the navigation bar */
   background-color: #014775;
   padding: 10px; /* Padding around the navigation bar */
@@ -15,7 +15,7 @@
 }
 
 .navLogo {
-  font-size: 2.4rem; /* Adjust the font size as needed */
+  font-size: 1.7rem; /* Adjust the font size as needed */
   color: white;
   font-family: 'Lobster Two', sans-serif;
   font-weight: 700; /* Bold */

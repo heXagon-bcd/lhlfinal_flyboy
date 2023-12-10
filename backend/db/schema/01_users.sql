@@ -6,5 +6,6 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
-    sub VARCHAR(255) -- id for auth0
+    sub VARCHAR(255), -- id for auth0
+    profile_picture VARCHAR(255)
 );

@@ -16,7 +16,7 @@ const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0(); // send user object to backend
   const [itineraries, setItineraries] = useState([]);
   const [userProfile, setUserProfile] = useState([]);
-  console.log(user);
+  console.log("19 user:", user);
 
   useEffect(() => {
     const sendUserToBackend = async () => {
@@ -65,7 +65,7 @@ const Profile = () => {
           <h4>Displaying {userProfile.first_name}'s Trips</h4>
           <div className="user-info-container-1">
             <div className="user-info-container-2">
-              <img src={user.picture} alt={user.name} />{" "}
+              <img src={userProfile.profile_picture} alt={user.name} />{" "}
               {/* Calls data from auth0 directly */}
             </div>
             <div className="user-info-container-3">

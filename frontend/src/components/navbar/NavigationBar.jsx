@@ -15,8 +15,10 @@ const NavigationBar = ({ onNewSearch }) => {
   return (
     <nav className="navBar">
       <Link to="/"><div className="navLogo">Flyboy</div></Link>
-      <ul>
-        <li><Link to="/form" onClick={handleNewSearchClick}>NEW SEARCH</Link></li>
+      <ul className="navBar-nav">
+        <li className="navBar-item">
+          <Link to="/form" onClick={handleNewSearchClick}>NEW SEARCH</Link>
+        </li>
         {isAuthenticated ? (
           <>
             <li><Link to="/profile">MY TRIPS</Link></li>
