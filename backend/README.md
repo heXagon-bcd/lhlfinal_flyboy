@@ -15,9 +15,9 @@ The following steps are only for _one_ of the group members to perform.
 1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
 2. Update the .env file with your correct local information
 
-- username: `labber`
-- password: `labber`
-- database: `midterm`
+- username: `yourname`
+- password: `yourpassword`
+- database: `flyboy`
 
 3. Install dependencies: `npm i`
 4. Fix to binaries for sass: `npm rebuild node-sass`
@@ -47,7 +47,7 @@ The following steps are only for _one_ of the group members to perform.
 - NPM 5.x or above
 - PG 6.x
 
-
 ## API FLOW
+
 - express server creates routes
--cors allows communcation between server and browser
+  -cors allows communcation between server and browser
