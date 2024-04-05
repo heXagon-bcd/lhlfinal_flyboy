@@ -103,6 +103,8 @@ const getFlightData = async (
       endCity: dataEndResponse,
       flightDetailsPrice:
         bestFlightDetails[0].travellerPriceBreakdown.total.units,
+      departureDate: startDate,
+      returnDate: returnDate,
     };
   } catch (e) {
     console.error("Heres the error", e);

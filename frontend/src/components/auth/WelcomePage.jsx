@@ -10,7 +10,7 @@ const WelcomePage = () => {
         <h1 className="welcome-logo">Flyboy</h1>
       </div>
       <div className="welcome-bottom">
-        <h4 className="welcome-text-2">YOUR PERSONALIZED TRIP PLANNER</h4>
+        <h4 className="welcome-text-2">PERSONAL TRIP PLANNER</h4>
         <LoginButton />
       </div>
     </div>

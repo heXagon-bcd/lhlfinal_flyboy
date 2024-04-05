@@ -1,128 +1,166 @@
+/* TravelForm.css */
+
+.outer-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .search-form {
+  width: 70%;
+  padding: 20px;
+  padding-left: 40px;
+  padding-bottom: 40px;
+  border: 1px solid #c0c0c0;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: rgb(255, 105, 68);
-  color: rgb(171, 0, 0);
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 0.8rem;
-  width: 70%;
-  height: 80%;
-  /* padding: 2vh; */
-}
-
-.search-form input {
-  border: 0px;
-  border-bottom: 1.7px solid white;
-  background-color: transparent; 
-  font-size: 1rem;
-  color:#ffffff;
-  padding: 15px;
-}
-
-/* Style the placeholder text */
-.search-form label, input::placeholder {
-  color: #ffffff; /* Change the color of the placeholder text */
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-weight: bold;
-  font-size: 0.8rem; /* Change the font size of the placeholder text */
-}
-
-.search-form input.date {
-  cursor: pointer;
-}
-
-.search-form button {
-  background-color: rgb(50, 50, 50);
-  color: #ffffff;
-  margin-top: 20px;
-  padding: 10px 20px;
-  padding-top: 12px;
-  border: none;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 1.3rem;
-  width: 80%;
-  cursor: pointer;
-}
-
-.upper-form {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 100%;
-}
-
-.upper-form input {
-  margin-top: 0px;
-}
-
-.upper-form div .title {
-  width: 100%;
-}
-
-.title h4 {
-  font-size: 1.7rem;
-  color: #ffffff; /* Change the color of the placeholder text */
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: bold;
-}
-
-.upper-form div {
-  margin-bottom: 30px;
-  margin-top: 0px;
-}
-
-.upper-form input {
-  width: 84%;
-}
-
-.left-column {
-  /* flex-basis: calc(35% - 20px); 50% width with some spacing */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 40%;
-}
-
-/* Style the right column */
-.right-column {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  /* flex-basis: calc(35% - 20px); 50% width with some spacing */
-}
-
-
-.lower-form {
-  width: 100%;
-  margin-bottom: 4vh;
-  justify-content: center;
-}
-
-.lower-form .heading {
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 10%;
+  background-color: white;
 }
 
 .input-container {
   width: 100%;
+  /* border: 1px solid #ff7b7b; */
+  position: relative;
+  box-sizing: border-box; /* Include padding and border in the total width */
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 15px;
 }
 
-.input-container .departure-heading, .return-heading {
+.upper-form .title {
+  text-align: center;
+  margin-bottom: 20px; /* Corrected the typo in margin */
+}
+
+.upper-form .title h4 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 2rem;
+  margin: 20px;
+}
+
+.search-form .input {
+  margin: 5px;
+  width: calc(100% - 20px); /* Adjust width to account for margin and padding */
+  padding: 0px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding and border in the total width */
+}
+
+.search-form .input-container .formik {
+  /* Add date input styling */
+  color: #828282;
+  font-size: 0.8rem;
+}
+
+.loading-screen-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-left: 30px;
 }
 
-.lower-form div {
-  margin-top: 20px;
-  margin-bottom: 30px;
+.search-form .upper-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.lower-form input {
-  width: 80%;
+.search-form .lower-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form .columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.search-form .left-column,
+.search-form .right-column {
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-form input {
+  /* margin: 5px; */
+  width: calc(100% - 20px); /* Adjust width to account for margin and padding */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding and border in the total width */
+}
+
+.form-submit-button {
+  background-color: #4CAF50; /* Green background color */
+  color: #ffffff; /* White text color */
+  padding: 12px 20px; /* Padding for the button */
+  font-size: 1.2rem; /* Font size */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Add a slight border radius */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Add additional styles as needed */
+
+/* Style for form fields */
+.formik {
+  /* width: 100%; */
+  margin-bottom: 11px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Style for input placeholder */
+.search-form .input-container input.formik {
+  color: black;
+}
+
+.formik::placeholder {
+  color: #828282; /* Adjust the color as needed */
+  font-size: 0.8rem; /* Adjust the font size as needed */
+  padding: 0px;
+}
+
+/* Style for error messages */
+.formik-error {
+  color: red;
+  font-size: 0.6rem;
+  margin: 0px;
+  padding: 0.6px;
+}
+
+/* Add additional styles as needed */
+
+@media (max-width: 700px) {
+  .search-form .columns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-form .left-column,
+  .search-form .right-column {
+    width: 100%;
+  }
 }

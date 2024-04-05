@@ -1,12 +1,19 @@
-export const TravelFormModal = ({ data }) => {
+import '../../style/TravelFormModal.css'
 
-  console.log("Travel form data", data)
-    return (
+export const TravelFormModal = ({ data }) => {
+  return (
+    <div className="travel-form-modal-container">
+      <div className="travel-form-modal-item">
+        <h2>{data.name}</h2>
         <div>
-              <h2>{data.name}</h2>
-              <img src={data.image} alt={data.name} />
-              <p>Rating: {data.rating}</p>
-              <p>Location: {data.location}</p>
+          <img src={data.image} alt={data.name} />
         </div>
-    );
+        <div>
+          <p>Rating: {data.rating}</p>
+          <p>Pricing: {data.price}</p>
+          <p>Location: {data.location}</p>
+        </div>
+      </div>
+    </div>
+  );
 };

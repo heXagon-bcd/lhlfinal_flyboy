@@ -1,7 +1,7 @@
 // load .env data into process.env
 require("dotenv").config();
 const flightAPIRouter = require("./routes/flight");
-const termSearchRouter = require("./routes/termSearch")
+const termSearchRouter = require("./routes/termSearch");
 const path = require("path");
 
 // Web server config
@@ -27,7 +27,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 //app.use(cors());
 
-
 //react
 
 app.use(express.static(path.join(__dirname, "..", "frontend", "build")));
@@ -39,7 +38,7 @@ const userApiRoutes = require("./routes/users-api");
 const widgetApiRoutes = require("./routes/widgets-api");
 const usersRoutes = require("./routes/users");
 const flightAPI = require("./api/skyscanner");
-const termSearch = require("./routes/helper/search")
+const termSearch = require("./routes/helper/search");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -47,7 +46,7 @@ app.use("/api/users", userApiRoutes);
 app.use("/api/widgets", widgetApiRoutes);
 app.use("/users", usersRoutes);
 app.use("/api", flightAPIRouter);
-app.use("/api", termSearchRouter)
+app.use("/api", termSearchRouter);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -62,7 +61,6 @@ app.get("/", (req, res) => {
 // app.get("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "..", "frontend", "build", "index.html"));
 // });
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

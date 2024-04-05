@@ -1,0 +1,73 @@
+/* Profile.css */
+
+.profile-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+  width: 80%;
+  padding: 5%;
+  /* background-color: #f5f0e6; */
+  background-color: rgb(245, 244, 244);
+}
+
+.user-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 450px;
+  margin-bottom: 20px;
+}
+
+.user-info-container h4 {
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: #1a1a1a;;
+}
+
+.user-info-container-1 {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+.user-info-container-2 img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-info-container-2 {
+  display: flex;
+  align-items: center;
+}
+
+.user-info-container-3 {
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.user-info-container-3 p {
+  font-size: 1rem;
+  margin: 0px;
+  padding: 0px;
+}
+
+.itineraries-container {
+  width: 100%;
+  max-width: 800px; /* Set a maximum width for the itineraries container */
+}

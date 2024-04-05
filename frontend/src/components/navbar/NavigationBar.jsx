@@ -1,21 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth0 } from '@auth0/auth0-react';
 import '../../style/NavigationBar.css'
 
-const NavigationBar = () => {
+const NavigationBar = ({ onNewSearch }) => {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
+  const navigate = useNavigate();
+  const handleNewSearchClick = () => {
+    onNewSearch(); // Reset the state
+    navigate("/form"); // Redirect to the form
+  };
 
   return (
     <nav className="navBar">
-      <div className="logo">Flyboy</div>
+      <Link to="/"><div className="navLogo">Flyboy</div></Link>
       <ul>
-        <li><Link to="/">HOME</Link></li>
-        <li><Link to="/form">NEW SEARCH</Link></li>
-        <li><Link to="/itinerary">MY PROFILE</Link></li>
+        <li><Link to="/form" onClick={handleNewSearchClick}>NEW SEARCH</Link></li>
         {isAuthenticated ? (
           <>
-            <li><Link to="/profile">PROFILE</Link></li>
+            <li><Link to="/profile">MY TRIPS</Link></li>
             <li><Link to="/logout" onClick={() => logout()}>LOGOUT</Link></li>
           </>
         ) : (
