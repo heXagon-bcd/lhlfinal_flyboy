@@ -5,13 +5,8 @@
 1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
 2. Update the .env file with your correct local information
 
-<<<<<<< HEAD
 - username: `yourname`
 - password: `yourpassword`
-=======
-- username: `yourinfo`
-- password: `yourinfo`
->>>>>>> 2d9f5e574e5e6883f9fb7873d8cd3e7a7d2c83f2
 - database: `flyboy`
 
 3. Install dependencies: `npm i`
