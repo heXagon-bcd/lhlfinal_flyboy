@@ -57,9 +57,11 @@ This project puts together all the learnings throughout 6 months of coding.
 ## Getting Started
 
 ## Front End Installation
+
 Go into the frontend folder
 
 ### `npm -i`
+
 Install all the dependencies listed in the package.json. When you run this command, npm will look at the dependencies and devDependencies
 
 ### `npm start`
@@ -67,18 +69,20 @@ Install all the dependencies listed in the package.json. When you run this comma
 Launches the browser and waits for server interaction to load Create React App
 
 #### Go into .env
+
 ```js
 REACT_APP_API_SERVER_URL=http://localhost:3002
 REACT_APP_AUTH0_DOMAIN=your auth0 domain
 REACT_APP_AUTH0_CLIENT_ID=your client data
 REACT_APP_AUTH0_CALLBACK_URL=http://localhost:3002/callback
-````
-
+```
 
 ## Back End Installtion
+
 Go into the backend folder
 
 ### `npm -i`
+
 Install all the dependencies listed in the package.json. When you run this command, npm will look at the dependencies and devDependencies
 
 ## Setup
@@ -123,8 +127,24 @@ Install all the dependencies listed in the package.json. When you run this comma
 - express server creates routes
   -cors allows communcation between server and browser
 
+## Features
 
+### AUTH0
 
+Auth0 is to authenticate users and push to our postgres database
+![Ouath](image.png)
+
+### FORMIK
+
+Formik is used to create forms and handle data transmission
+
+![alt text](image-1.png)
+
+### Saved searches
+
+Once the search is complete, you can view your interary and save them!
+
+![alt text](image-2.png)
 
 <!-- Markdown links & Images -->
 
@@ -137,5 +157,3 @@ Install all the dependencies listed in the package.json. When you run this comma
 [HTML5]: https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white
 [JavaScript]: https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
 [Flyboy_Background]: frontend/public/flyboy_background.png
-
-
